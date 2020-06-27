@@ -2,6 +2,7 @@ import 'package:cyberpizza/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'BigList.dart';
 import 'ChelouBackgroundViolet.dart';
 import 'colors.dart';
 
@@ -27,12 +28,16 @@ class ProductPage extends StatelessWidget {
             children: [
               Center(
                 child: Padding(
-                  padding: const EdgeInsets.all(40.0),
+                  padding: const EdgeInsets.fromLTRB(40.0, 50, 40, 20),
                   child: Hero(
                     tag: "titleAnimation",
-                    child: Text(
-                      'CyberPizza',
-                      style: TextStyle(fontSize: 24),
+                    child: Opacity(
+                      opacity: 0.5,
+                      child: Image.asset(
+                        'assets/applogo.png',
+                        width: 200,
+                        height: 50,
+                      ),
                     ),
                   ),
                 ),
@@ -73,7 +78,7 @@ class ProductPage extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: Container(),
+                child: BigList(),
               )
             ],
           ),

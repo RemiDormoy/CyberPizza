@@ -46,6 +46,7 @@ flutter:
   assets:
     - assets/underlinebutton.svg
     - assets/armleft.svg
+    - assets/armleft.png
     - assets/armright.svg
     - assets/backgroundsplash.svg
     - assets/eyeblue.svg
@@ -53,6 +54,12 @@ flutter:
     - assets/grid.svg
     - assets/helmet.svg
     - assets/neck.svg
+    - assets/pistolet.png
+    - assets/armright.png
+    - assets/eyeblue.png
+    - assets/eyered.png
+    - assets/helmet.png
+    - assets/neck.png
     - assets/pistolet.svg
     - assets/applogo.svg
     - assets/applogo.png
