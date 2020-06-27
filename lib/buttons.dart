@@ -108,22 +108,38 @@ class CyberActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      elevation: 0.0,
-      color: color,
-      type: MaterialType.canvas,
-      shape: BeveledRectangleBorder(
-          borderRadius:
-              new BorderRadius.only(bottomRight: Radius.circular(15))),
-      child: Container(
-        child: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Text(
-            text,
-            style: TextStyle(color: textColor, fontWeight: FontWeight.bold),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 1.5),
+          child: Container(
+            child: CustomPaint(
+                painter: CyberAction(),
+                child: Container(
+                  padding: EdgeInsets.all(15),
+                  child: Text(text,
+                      style: TextStyle(
+                        color: textColor,
+                        fontSize: 22,
+                        shadows: [
+                          Shadow(
+                            offset: Offset.zero,
+                            blurRadius: 4.0,
+                            color: secondary,
+                          ),
+                          Shadow(
+                            offset: Offset.zero,
+                            blurRadius: 8.0,
+                            color: color,
+                          ),
+                        ],
+                      )),
+                )),
           ),
         ),
-      ),
+      ],
     );
   }
 }
@@ -150,6 +166,44 @@ class NeonPainter extends CustomPainter {
     path..lineTo(size.width - notchSize, size.height);
     path..lineTo(0, size.height);
     path..lineTo(0, 0);
+    canvas.drawPath(path, shadowPaint);
+    canvas.drawPath(path, borderPaint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) => true;
+}
+class CyberAction extends CustomPainter {
+  CyberAction();
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    var gradient = LinearGradient(
+      begin: Alignment.bottomCenter,
+      end: Alignment.topCenter,
+      colors: <Color>[deepBlueDark, Colors.white.withOpacity(0.8)],
+    ).createShader(Rect.fromLTWH(0.0, 0.0, 0.0, 20.0));
+    final whitePaint = Paint()
+      ..strokeWidth = 2
+      ..color = secondary
+      ..style = PaintingStyle.stroke
+      ..shader = gradient;
+    final shadowPaint = Paint()
+      ..strokeWidth = 4
+      ..color = Colors.grey.withOpacity(0.5)
+      ..style = PaintingStyle.stroke
+      ..maskFilter = MaskFilter.blur(BlurStyle.normal, 2);
+    final borderPaint = Paint()
+      ..color = materialPrimary
+      ..style = PaintingStyle.fill;
+    var path = Path();
+    path..moveTo(0, 0);
+    path..lineTo(size.width, 0);
+    path..lineTo(size.width, size.height - 20);
+    path..lineTo(size.width - 20, size.height);
+    path..lineTo(0, size.height);
+    path..lineTo(0, 0);
+    canvas.drawPath(path, whitePaint);
     canvas.drawPath(path, shadowPaint);
     canvas.drawPath(path, borderPaint);
   }
