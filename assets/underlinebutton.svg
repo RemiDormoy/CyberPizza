@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="43px" height="4px" viewBox="0 0 43 4" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Bottom button</title>
+    <g id="Screens" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1.0_Splash" transform="translate(-291.000000, -174.000000)" fill="#0AFFFD">
+            <g id="Bottom-button" transform="translate(291.000000, 174.000000)">
+                <polygon id="Rectangle" points="-1.77635684e-15 0 25.2106306 0 30 4 -1.77635684e-15 4"></polygon>
+                <polygon id="Rectangle" points="29 0 31.6313004 0 36.4206698 4 33.9471046 4"></polygon>
+                <polygon id="Rectangle" points="35 0 37.6313004 0 42.4206698 4 39.9471046 4"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -12,21 +12,25 @@ class CyberButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Material(
-          elevation: 0.0,
-          color: Colors.transparent,
-          type: MaterialType.button,
-          shape: BeveledRectangleBorder(
-              side: BorderSide(color: secondary, width: 1.5),
-              borderRadius:
-                  new BorderRadius.only(bottomRight: Radius.circular(15))),
-          child: Container(
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Text(
-                text,
-                style: TextStyle(color: secondary, fontWeight: FontWeight.bold),
+        Padding(
+          padding: const EdgeInsets.only(left: 0.75),
+          child: Material(
+            elevation: 0.0,
+            color: Colors.transparent,
+            type: MaterialType.button,
+            shape: BeveledRectangleBorder(
+                side: BorderSide(color: secondary, width: 1.5),
+                borderRadius:
+                    new BorderRadius.only(bottomRight: Radius.circular(15))),
+            child: Container(
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Text(
+                  text,
+                  style: TextStyle(color: secondary, fontWeight: FontWeight.bold),
+                ),
               ),
             ),
           ),

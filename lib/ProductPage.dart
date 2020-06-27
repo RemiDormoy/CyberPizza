@@ -9,25 +9,37 @@ class ProductPage extends StatelessWidget {
     return Scaffold(
         body: Container(
       decoration: BoxDecoration(color: deepBlueDark),
-      child: Column(
+      child: Row(
         children: [
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.all(40.0),
-              child: Hero(
-                tag: "titleAnimation",
-                child: Text(
-                  'CyberPizza',
-                  style: TextStyle(fontSize: 24),
+          Expanded(
+            child: Container(),
+            flex: 1,
+          ),
+          Column(
+            children: [
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(40.0),
+                  child: Hero(
+                    tag: "titleAnimation",
+                    child: Text(
+                      'CyberPizza',
+                      style: TextStyle(fontSize: 24),
+                    ),
+                  ),
                 ),
               ),
-            ),
+              Expanded(
+                child: Center(
+                  child: CyberButton(text: "Je suis un boulet",),
+                ),
+              )
+            ],
           ),
           Expanded(
-            child: Center(
-              child: CyberButton(text: "Je suis un boulet",),
-            ),
-          )
+            flex: 1,
+            child: Container(),
+          ),
         ],
       ),
     ));
