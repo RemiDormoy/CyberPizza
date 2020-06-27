@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:cyberpizza/ProductPage.dart';
 import 'package:cyberpizza/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() => runApp(MyApp());
@@ -63,15 +64,35 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(color: deepBlueDark),
-        child: Center(
-          child: Hero(
-            tag: "titleAnimation",
-            flightShuttleBuilder: _flightShuttleBuilder,
-            child: Text(
-              'CyberPizza',
-              style: TextStyle(fontSize: 32),
+        child: Stack(
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              child: SvgPicture.asset(
+                "assets/backgroundsplash.svg",
+                semanticsLabel: 'Acme Logo',
+              ),
             ),
-          ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              child: SvgPicture.asset(
+                "assets/grid.svg",
+                semanticsLabel: 'Acme Logo',
+              ),
+            ),
+            Center(
+              child: Hero(
+                tag: "titleAnimation",
+                flightShuttleBuilder: _flightShuttleBuilder,
+                child: Text(
+                  'CyberPizza',
+                  style: TextStyle(fontSize: 32),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

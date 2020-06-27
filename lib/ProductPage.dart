@@ -1,5 +1,6 @@
 import 'package:cyberpizza/buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'ChelouBackgroundViolet.dart';
 import 'colors.dart';
@@ -12,6 +13,14 @@ class ProductPage extends StatelessWidget {
       decoration: BoxDecoration(color: deepBlueDark),
       child: Stack(
         children: [
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: SvgPicture.asset(
+              "assets/grid.svg",
+              semanticsLabel: 'Acme Logo',
+            ),
+          ),
           ChelouBackgroundViolet(),
           Column(
             children: [

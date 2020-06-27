@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="377px" height="812px" viewBox="0 0 377 812" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Grid</title>
+    <defs>
+        <rect id="path-1" x="2.99468085" y="0.998769988" width="372.007979" height="811.00123"></rect>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.400486233" offset="53.6132812%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.400486233" offset="53.6132812%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Screens" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="2.0_Home" transform="translate(1.000000, 0.000000)">
+            <g id="Grid" transform="translate(-1.000000, 0.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Rectangle"></g>
+                <g id="Group-3" opacity="0.603841146" mask="url(#mask-2)" stroke="url(#linearGradient-3)">
+                    <g transform="translate(49.371011, 0.998770)" id="Path-3" opacity="0.204520089">
+                        <line x1="0.498670213" y1="0" x2="0.498670213" y2="811.00123"></line>
+                        <line x1="56.349734" y1="0" x2="56.349734" y2="811.00123"></line>
+                        <line x1="112.200798" y1="0" x2="112.200798" y2="811.00123"></line>
+                        <line x1="168.051862" y1="0" x2="168.051862" y2="811.00123"></line>
+                        <line x1="223.902926" y1="0" x2="223.902926" y2="811.00123"></line>
+                        <line x1="279.753989" y1="0" x2="279.753989" y2="811.00123"></line>
+                    </g>
+                </g>
+                <g id="Group-3" opacity="0.556175595" mask="url(#mask-2)" stroke="url(#linearGradient-4)">
+                    <g transform="translate(188.500000, 337.084871) rotate(-270.000000) translate(-188.500000, -337.084871) translate(-147.603723, 149.316113)" id="Path-3" opacity="0.204520089">
+                        <line x1="0.997340426" y1="0.499384994" x2="0.997340426" y2="375.03813"></line>
+                        <line x1="56.8484043" y1="0.499384994" x2="56.8484043" y2="375.03813"></line>
+                        <line x1="112.699468" y1="0.499384994" x2="112.699468" y2="375.03813"></line>
+                        <line x1="168.550532" y1="0.499384994" x2="168.550532" y2="375.03813"></line>
+                        <line x1="224.401596" y1="0.499384994" x2="224.401596" y2="375.03813"></line>
+                        <line x1="280.25266" y1="0.499384994" x2="280.25266" y2="375.03813"></line>
+                        <line x1="336.103723" y1="0.499384994" x2="336.103723" y2="375.03813"></line>
+                        <line x1="391.954787" y1="0.499384994" x2="391.954787" y2="375.03813"></line>
+                        <line x1="447.805851" y1="0.499384994" x2="447.805851" y2="375.03813"></line>
+                        <line x1="503.656915" y1="0.499384994" x2="503.656915" y2="375.03813"></line>
+                        <line x1="559.507979" y1="0.499384994" x2="559.507979" y2="375.03813"></line>
+                        <line x1="615.359043" y1="0.499384994" x2="615.359043" y2="375.03813"></line>
+                        <line x1="671.210106" y1="0.499384994" x2="671.210106" y2="375.03813"></line>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -45,6 +45,15 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/underlinebutton.svg
+    - assets/armleft.svg
+    - assets/armright.svg
+    - assets/backgroundsplash.svg
+    - assets/eyeblue.svg
+    - assets/eyered.svg
+    - assets/grid.svg
+    - assets/helmet.svg
+    - assets/neck.svg
+    - assets/pistolet.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
