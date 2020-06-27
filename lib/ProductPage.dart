@@ -98,10 +98,19 @@ class ProductPage extends StatelessWidget {
                   ),
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.only(top: 15.0),
+                child: CyberButton(
+                  text: "See product",
+                  color: materialPrimary,
+                ),
+              ),
               Container(
                   width: MediaQuery.of(context).size.width,
                   child: SizedBox(
-                      height: 142, width: 300.0, child: _bottomList())), //
+                      height: 142, width: 300.0,
+                      child: _bottomList())), //
+
             ],
           ),
         ],
@@ -114,25 +123,27 @@ class ProductPage extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       children: <Widget>[
         _itemView('assets/eyeblue.png'),
-        _itemView('assets/Neck.png'),
-        _itemView('assets/Helmet.png'),
-        _itemView('assets/Armleft.png'),
-        _itemView('assets/Armright.png'),
-        _itemView('assets/Pistolet.png'),
+        _itemView('assets/neck.png'),
+        _itemView('assets/helmet.png'),
+        _itemView('assets/armleft.png'),
+        _itemView('assets/armright.png'),
+        _itemView('assets/pistolet.png'),
+        _itemView('assets/eyered.png'),
       ],
     );
   }
 
   _itemView(String url) {
     return Container(
-      height: 42.0,
-      width: 56.0,
+      height: 40,
+      width: 70,
       child: Padding(
         padding: EdgeInsets.all(16.0),
         child: Image.asset(
           url,
-          height: 42.0,
-          width: 56.0,
+          height: 40.0,
+          width: 70,
+          fit: BoxFit.contain,
         ),
       ),
     );

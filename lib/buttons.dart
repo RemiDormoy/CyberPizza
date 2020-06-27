@@ -38,7 +38,7 @@ class CyberButton extends StatelessWidget {
           padding: const EdgeInsets.only(left: 0.75),
           child: Container(
             child: CustomPaint(
-                painter: NeonPainter(),
+                painter: NeonPainter(color: color),
                 child: Container(
                   padding: EdgeInsets.symmetric(
                     vertical: 8,
@@ -55,7 +55,7 @@ class CyberButton extends StatelessWidget {
                               Shadow(
                                 offset: Offset.zero,
                                 blurRadius: 4.0,
-                                color: secondary,
+                                color: color,
                               ),
                               Shadow(
                                 offset: Offset.zero,
@@ -76,12 +76,13 @@ class CyberButton extends StatelessWidget {
             child: SvgPicture.asset(
               "assets/underlinebutton.svg",
               semanticsLabel: 'Acme Logo',
+              color: color,
             ),
             decoration: BoxDecoration(
               color: Colors.transparent,
               boxShadow: [
                 BoxShadow(
-                  color: secondary.withOpacity(0.5),
+                  color: color.withOpacity(0.5),
                   spreadRadius: 1,
                   blurRadius: 4,
                   offset: Offset.zero,
@@ -127,7 +128,7 @@ class CyberActionButton extends StatelessWidget {
                           Shadow(
                             offset: Offset.zero,
                             blurRadius: 4.0,
-                            color: secondary,
+                            color: color,
                           ),
                           Shadow(
                             offset: Offset.zero,
@@ -145,19 +146,21 @@ class CyberActionButton extends StatelessWidget {
 }
 
 class NeonPainter extends CustomPainter {
-  NeonPainter();
+  Color color;
+
+  NeonPainter({this.color = secondary});
 
   @override
   void paint(Canvas canvas, Size size) {
     var notchSize = size.height / 4;
     final shadowPaint = Paint()
       ..strokeWidth = 3
-      ..color = secondary
+      ..color = color
       ..style = PaintingStyle.stroke
       ..maskFilter = MaskFilter.blur(BlurStyle.normal, 2);
     final borderPaint = Paint()
       ..strokeWidth = 1.5
-      ..color = Colors.white
+      ..color = color
       ..style = PaintingStyle.stroke;
     var path = Path();
     path..moveTo(0, 0);
