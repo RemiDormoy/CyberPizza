@@ -6,10 +6,11 @@ class BigList extends StatefulWidget {
 
   Function(int) onPageChanged;
   int initialChild;
-  _BigListState _state = _BigListState();
+  _BigListState _state;
 
   @override
   _BigListState createState() {
+    _state = _BigListState();
     return _state;
   }
 
@@ -41,6 +42,7 @@ class _BigListState extends State<BigList> {
 
   @override
   Widget build(BuildContext context) {
+    widget._state = this;
     return NotificationListener<ScrollNotification>(
       onNotification: onNotif,
       child: PageView.builder(
@@ -90,12 +92,17 @@ class _BigListState extends State<BigList> {
     print("scale : " + scale.toString());
     return Transform.scale(
       scale: scale,
-      child: Container(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 0),
-          child: Image.asset(
-            asset,
-            fit: BoxFit.contain,
+      child: GestureDetector(
+        onTap: () {
+          if (position == pageController.page) Navigator.of(context).pushNamed("/detail");
+        },
+        child: Container(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 0),
+            child: Image.asset(
+              asset,
+              fit: BoxFit.contain,
+            ),
           ),
         ),
       ),
@@ -103,6 +110,7 @@ class _BigListState extends State<BigList> {
   }
 
   setPage(int page) {
+    print('je jump');
     pageController.jumpToPage(page);
   }
 }

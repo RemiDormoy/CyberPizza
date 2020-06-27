@@ -108,9 +108,14 @@ class Product extends State<ProductPage> {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 15.0, bottom: 60),
-                child: CyberButton(
-                  text: "See product",
-                  color: materialPrimary,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pushNamed("/detail");
+                  },
+                  child: CyberButton(
+                    text: "See product",
+                    color: materialPrimary,
+                  ),
                 ),
               ),
               Container(
@@ -197,9 +202,7 @@ class Product extends State<ProductPage> {
     }
     return GestureDetector(
       onTap: () {
-        setState(() {
-          productFocused = position;
-        });
+          bigList.setPage(position);
       },
       child: Container(
         height: 40,
@@ -223,9 +226,9 @@ class Product extends State<ProductPage> {
   }
 
   _onProductFocusChanged(int postition) {
+    print("je focus");
     setState(() {
       productFocused = postition;
-      //bigList.setPage(postition);
     });
   }
 }
