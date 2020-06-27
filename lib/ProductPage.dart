@@ -35,7 +35,7 @@ class ProductPage extends StatelessWidget {
                   shadows: [
                     Shadow(
                       offset: Offset.zero,
-                      blurRadius: 8.0,
+                      blurRadius: 16.0,
                       color: materialPrimary,
                     ),
                     Shadow(
