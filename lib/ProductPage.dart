@@ -79,6 +79,26 @@ class ProductPage extends StatelessWidget {
               ),
               Expanded(
                 child: BigList(),
+              ),
+              Text(
+                '/Cybernetic neck;',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Text(
+                  '<New - €234,99',
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: white.withOpacity(0.8)
+                  ),
+                ),
+              ),
+              Container(
+                height: 250,
               )
             ],
           ),

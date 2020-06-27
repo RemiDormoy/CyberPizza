@@ -8,9 +8,10 @@ class BigList extends StatefulWidget {
 }
 
 class _BigListState extends State<BigList> {
-  var SCALE_FRACTION = 0.7;
+  var SCALE_FRACTION = 0.5;
 
   var FULL_SCALE = 1.0;
+  var viewPortFraction = 0.4;
 
   PageController pageController;
   double page = 1;
@@ -18,7 +19,7 @@ class _BigListState extends State<BigList> {
 
   @override
   void initState() {
-    pageController = PageController(initialPage: 1, viewportFraction: 0.6);
+    pageController = PageController(initialPage: 1, viewportFraction: viewPortFraction);
     pageController..addListener(_listener);
     super.initState();
   }
@@ -55,7 +56,7 @@ class _BigListState extends State<BigList> {
 
   Widget _builder(BuildContext context, int position) {
     final scale =
-        max(SCALE_FRACTION, (FULL_SCALE - (position - page).abs()) + 0.6);
+        min(1.0, max(SCALE_FRACTION, (FULL_SCALE - (position - page).abs()) + viewPortFraction));
     String asset;
     if (position == 0) {
       asset = "assets/eyeblue.png";
@@ -66,18 +67,22 @@ class _BigListState extends State<BigList> {
     } else if (position == 3) {
       asset = "assets/armright.png";
     } else if (position == 4) {
-      asset = "assets/armleft.png";
-    } else if (position == 5) {
       asset = "assets/pistolet.png";
+    } else if (position == 5) {
+      asset = "assets/armleft.png";
     } else if (position == 6) {
       asset = "assets/eyered.png";
     }
+    print("scale : " + scale.toString());
     return Transform.scale(
       scale: scale,
       child: Container(
         child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Image.asset(asset),
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 0),
+          child: Image.asset(
+            asset,
+            fit: BoxFit.contain,
+          ),
         ),
       ),
     );
