@@ -1,6 +1,6 @@
+import 'package:cyberpizza/buttons.dart';
 import 'package:flutter/material.dart';
 
-import 'buttons.dart';
 import 'colors.dart';
 
 class ProductPage extends StatelessWidget {
@@ -9,37 +9,58 @@ class ProductPage extends StatelessWidget {
     return Scaffold(
         body: Container(
       decoration: BoxDecoration(color: deepBlueDark),
-      child: Row(
+      child: Column(
         children: [
-          Expanded(
-            child: Container(),
-            flex: 1,
-          ),
-          Column(
-            children: [
-              Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(40.0),
-                  child: Hero(
-                    tag: "titleAnimation",
-                    child: Text(
-                      'CyberPizza',
-                      style: TextStyle(fontSize: 24),
-                    ),
-                  ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(40.0),
+              child: Hero(
+                tag: "titleAnimation",
+                child: Text(
+                  'CyberPizza',
+                  style: TextStyle(fontSize: 24),
                 ),
               ),
-              Expanded(
-                child: Center(
-                  child: CyberButton(text: "Je suis un boulet",),
+            ),
+          ),
+          Align(
+            alignment: Alignment.topLeft,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 15.0),
+              child: Text(
+                'Welcome back',
+                style: TextStyle(
+                  color: white,
+                  fontSize: 32,
+                  shadows: [
+                    Shadow(
+                      offset: Offset.zero,
+                      blurRadius: 8.0,
+                      color: materialPrimary,
+                    ),
+                    Shadow(
+                      offset: Offset.zero,
+                      blurRadius: 16.0,
+                      color: materialPrimary,
+                    ),
+                  ],
                 ),
-              )
-            ],
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.topLeft,
+            child: Padding(
+              padding: const EdgeInsets.all(15),
+              child: CyberButton(
+                text: "Bionic arms",
+                withArrow: true,
+              ),
+            ),
           ),
           Expanded(
-            flex: 1,
             child: Container(),
-          ),
+          )
         ],
       ),
     ));

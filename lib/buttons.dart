@@ -5,45 +5,73 @@ import 'colors.dart';
 
 class CyberButton extends StatelessWidget {
   String text;
+  double textSize;
   Color color;
+  bool withArrow;
 
-  CyberButton({this.text, this.color = secondary}) : super();
+  CyberButton({
+    this.text,
+    this.color = secondary,
+    this.textSize = 14,
+    this.withArrow = false,
+  }) : super();
 
   @override
   Widget build(BuildContext context) {
+    Widget arrow;
+    if (withArrow) {
+      arrow = Padding(
+        padding: const EdgeInsets.only(left: 6.0),
+        child: Icon(
+          Icons.keyboard_arrow_down,
+          color: color,
+        ),
+      );
+    } else {
+      arrow = Container(width: 0, height: 0,);
+    }
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 1.5),
+          padding: const EdgeInsets.only(left: 0.75),
           child: Container(
             child: CustomPaint(
                 painter: NeonPainter(),
                 child: Container(
-                  padding: EdgeInsets.all(15),
-                  child: Text(text,
-                      style: TextStyle(
-                        color: color,
-                        fontSize: 22,
-                        shadows: [
-                          Shadow(
-                            offset: Offset.zero,
-                            blurRadius: 4.0,
-                            color: secondary,
-                          ),
-                          Shadow(
-                            offset: Offset.zero,
-                            blurRadius: 8.0,
+                  padding: EdgeInsets.symmetric(
+                    vertical: 8,
+                    horizontal: 15,
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(text,
+                          style: TextStyle(
                             color: color,
-                          ),
-                        ],
-                      )),
+                            fontSize: textSize,
+                            shadows: [
+                              Shadow(
+                                offset: Offset.zero,
+                                blurRadius: 4.0,
+                                color: secondary,
+                              ),
+                              Shadow(
+                                offset: Offset.zero,
+                                blurRadius: 8.0,
+                                color: color,
+                              ),
+                            ],
+                          )),
+                      arrow
+                    ],
+                  ),
                 )),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 1.5),
+          padding: const EdgeInsets.only(top: 0.75),
           child: Container(
             child: SvgPicture.asset(
               "assets/underlinebutton.svg",
@@ -105,20 +133,21 @@ class NeonPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
+    var notchSize = size.height / 4;
     final shadowPaint = Paint()
-      ..strokeWidth = 4
+      ..strokeWidth = 3
       ..color = secondary
       ..style = PaintingStyle.stroke
       ..maskFilter = MaskFilter.blur(BlurStyle.normal, 2);
     final borderPaint = Paint()
-      ..strokeWidth = 2
+      ..strokeWidth = 1.5
       ..color = Colors.white
       ..style = PaintingStyle.stroke;
     var path = Path();
     path..moveTo(0, 0);
     path..lineTo(size.width, 0);
-    path..lineTo(size.width, size.height - 20);
-    path..lineTo(size.width - 20, size.height);
+    path..lineTo(size.width, size.height - notchSize);
+    path..lineTo(size.width - notchSize, size.height);
     path..lineTo(0, size.height);
     path..lineTo(0, 0);
     canvas.drawPath(path, shadowPaint);
