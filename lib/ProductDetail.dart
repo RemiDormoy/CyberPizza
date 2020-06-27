@@ -1,8 +1,8 @@
 import 'package:cyberpizza/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-import 'ChelouBackgroundViolet.dart';
 import 'colors.dart';
 
 class ProductDetail extends StatelessWidget {
@@ -20,11 +20,22 @@ class ProductDetail extends StatelessWidget {
                 padding: const EdgeInsets.all(40.0),
                 child: Opacity(
                   opacity: 0.5,
-                  child: Text(
-                    'CyberPizza',
-                    style: TextStyle(fontSize: 24),
+                  child: Image.asset(
+                    'assets/applogo.png',
+                    width: 200,
+                    height: 50,
                   ),
                 ),
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.topLeft,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(30, 40, 0, 0),
+              child: SvgPicture.asset(
+                "assets/cyberback.svg",
+                semanticsLabel: 'Acme Logo',
               ),
             ),
           ),
@@ -41,17 +52,123 @@ class ProductDetail extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             child: Container(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height-100,
+              height: MediaQuery.of(context).size.height - 100,
               child: CustomPaint(
-                  painter: NeonPainter(),
+                  painter: DetailBackgroundPainter(),
                   child: Container(
-                    padding: EdgeInsets.symmetric(
-                      vertical: 8,
-                      horizontal: 15,
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [],
+                    child: Column(
+                      children: [
+                        Align(
+                          alignment: Alignment.bottomLeft,
+                          child: SvgPicture.asset(
+                            "assets/bottombutton_pink.svg",
+                            color: accent,
+                            semanticsLabel: 'Acme Logo',
+                            width: 90,
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                              top: 20,
+                              left: 20,
+                            ),
+                            child: Text(
+                              '/Cybernetic neck;',
+                              style: TextStyle(
+                                color: white,
+                                fontSize: 28,
+                                fontWeight: FontWeight.bold,
+                                shadows: [
+                                  Shadow(
+                                    offset: Offset.zero,
+                                    blurRadius: 16.0,
+                                    color: materialPrimary,
+                                  ),
+                                  Shadow(
+                                    offset: Offset.zero,
+                                    blurRadius: 16.0,
+                                    color: materialPrimary,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                              top: 20,
+                              left: 20,
+                            ),
+                            child: Text(
+                              '<New - €234,99',
+                              style: TextStyle(
+                                fontSize: 18,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                              top: 10,
+                              left: 20,
+                            ),
+                            child: Text(
+                              '//////////////////////////////////////////////////////////////////////////////',
+                              style: TextStyle(
+                                  fontSize: 10,
+                                  fontFamily: GoogleFonts.roboto().fontFamily),
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                              top: 20,
+                              left: 20,
+                            ),
+                            child: Text(
+                              'Protect your neck with up to date tech, develop by our best experts and enjoy lifting up to 500kg with your head !',
+                              style: TextStyle(
+                                fontSize: 14,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                            child: Padding(
+                          padding: const EdgeInsets.fromLTRB(40, 20, 40, 0),
+                          child: Image.asset("assets/neck.png"),
+                        )),
+                        Center(
+                          child: Container(
+                            width: MediaQuery.of(context).size.width / 2,
+                            height: 20,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.all(Radius.circular(50)),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.2),
+                                  offset: Offset(1.0, 6.0),
+                                  blurRadius: 20.0,
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 30, top: 40),
+                          child: CyberActionButton(
+                            text: "Buy with CYBER ID",
+                          ),
+                        )
+                      ],
                     ),
                   )),
             ),
@@ -62,20 +179,24 @@ class ProductDetail extends StatelessWidget {
   }
 }
 
-class NeonPainter extends CustomPainter {
-  NeonPainter();
+class DetailBackgroundPainter extends CustomPainter {
+  DetailBackgroundPainter();
 
   @override
   void paint(Canvas canvas, Size size) {
     var notchSize = size.height / 28;
+    var notch2SizeWidth = 80.0;
+    var notch2SizeHeigth = 9.0;
     final borderPaint = Paint()
       ..strokeWidth = 1.5
       ..color = deepBlueMedium
       ..style = PaintingStyle.fill;
     var path = Path();
     path..moveTo(0, 0);
-    path..lineTo(size.width - notchSize, 0);
-    path..lineTo(size.width, notchSize);
+    path..lineTo(notch2SizeWidth, 0);
+    path..lineTo(notch2SizeWidth + notch2SizeHeigth, notch2SizeHeigth);
+    path..lineTo(size.width - notchSize, notch2SizeHeigth);
+    path..lineTo(size.width, notchSize + notch2SizeHeigth);
     path..lineTo(size.width, size.height);
     path..lineTo(0, size.height);
     path..lineTo(0, 0);

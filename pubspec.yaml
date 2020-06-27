@@ -64,6 +64,7 @@ flutter:
     - assets/pistolet.svg
     - assets/applogo.svg
     - assets/applogo.png
+    - assets/cyberback.svg
 
     - assets/Armleft.png
     - assets/Armright.png
