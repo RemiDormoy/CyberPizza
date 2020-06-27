@@ -44,9 +44,22 @@ class CyberButton extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.only(top: 1.5),
-          child: SvgPicture.asset(
-            "assets/underlinebutton.svg",
-            semanticsLabel: 'Acme Logo',
+          child: Container(
+            child: SvgPicture.asset(
+              "assets/underlinebutton.svg",
+              semanticsLabel: 'Acme Logo',
+            ),
+            decoration: BoxDecoration(
+              color: Colors.transparent,
+              boxShadow: [
+                BoxShadow(
+                  color: secondary.withOpacity(0.5),
+                  spreadRadius: 1,
+                  blurRadius: 4,
+                  offset: Offset.zero,
+                ),
+              ],
+            ),
           ),
         ),
       ],
