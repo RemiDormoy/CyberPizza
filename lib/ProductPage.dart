@@ -25,6 +25,7 @@ class ProductPage extends StatelessWidget {
           ),
           ChelouBackgroundViolet(),
           Column(
+            mainAxisSize: MainAxisSize.max,
             children: [
               Center(
                 child: Padding(
@@ -98,12 +99,42 @@ class ProductPage extends StatelessWidget {
                 ),
               ),
               Container(
-                height: 250,
-              )
+                  width: MediaQuery.of(context).size.width,
+                  child: SizedBox(
+                      height: 142, width: 300.0, child: _bottomList())), //
             ],
           ),
         ],
       ),
     ));
+  }
+
+  _bottomList() {
+    return ListView(
+      scrollDirection: Axis.horizontal,
+      children: <Widget>[
+        _itemView('assets/eyeblue.png'),
+        _itemView('assets/Neck.png'),
+        _itemView('assets/Helmet.png'),
+        _itemView('assets/Armleft.png'),
+        _itemView('assets/Armright.png'),
+        _itemView('assets/Pistolet.png'),
+      ],
+    );
+  }
+
+  _itemView(String url) {
+    return Container(
+      height: 42.0,
+      width: 56.0,
+      child: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Image.asset(
+          url,
+          height: 42.0,
+          width: 56.0,
+        ),
+      ),
+    );
   }
 }
