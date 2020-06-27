@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
+import 'buttons.dart';
 import 'colors.dart';
 
 class ProductPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-      return Scaffold(
+    return Scaffold(
         body: Container(
-          decoration: BoxDecoration(color: deepBlueDark),
-          child: Align(
-            alignment: Alignment.topCenter,
+      decoration: BoxDecoration(color: deepBlueDark),
+      child: Column(
+        children: [
+          Center(
             child: Padding(
               padding: const EdgeInsets.all(40.0),
               child: Hero(
@@ -21,8 +23,13 @@ class ProductPage extends StatelessWidget {
               ),
             ),
           ),
-        )
-      );
+          Expanded(
+            child: Center(
+              child: CyberButton(text: "Je suis un boulet",),
+            ),
+          )
+        ],
+      ),
+    ));
   }
-
 }
