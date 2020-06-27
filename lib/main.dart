@@ -52,14 +52,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    Timer(Duration(seconds: 3),
+    Timer(
+        Duration(seconds: 5, milliseconds: 242),
         () => {
-      if (!wasPlayed) {
-        wasPlayed = true,
-        Navigator.of(context).pushNamed("/products")
-      }
-    });
-
+              if (!wasPlayed)
+                {wasPlayed = true, Navigator.of(context).pushNamed("/products")}
+            });
 
     return Scaffold(
       body: Container(
@@ -79,17 +77,30 @@ class _MyHomePageState extends State<MyHomePage> {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
               child: SvgPicture.asset(
-                "assets/grid.svg",
+                "assets/background_splash.svg",
                 semanticsLabel: 'Acme Logo',
                 fit: BoxFit.fill,
               ),
             ),
             Center(
-              child: Hero(
-                tag: "titleAnimation",
-                flightShuttleBuilder: _flightShuttleBuilder,
-                child: Image.asset(
-                  "assets/applogo.png",
+              child: Container(
+                width: 200,
+                child: Stack(
+                  children: [
+                    Container(
+                      child: Hero(
+                        tag: "titleAnimation",
+                        child: Image.asset(
+                          "assets/applogo.png",
+                        ),
+                      ),
+                    ),
+                    Container(
+                        child: Image.asset(
+                          "assets/Logo.gif",
+                    ),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -100,12 +111,12 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _flightShuttleBuilder(
-      BuildContext flightContext,
-      Animation<double> animation,
-      HeroFlightDirection flightDirection,
-      BuildContext fromHeroContext,
-      BuildContext toHeroContext,
-      ) {
+    BuildContext flightContext,
+    Animation<double> animation,
+    HeroFlightDirection flightDirection,
+    BuildContext fromHeroContext,
+    BuildContext toHeroContext,
+  ) {
     return DefaultTextStyle(
       style: DefaultTextStyle.of(toHeroContext).style,
       child: toHeroContext.widget,
