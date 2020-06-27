@@ -86,9 +86,8 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Hero(
                 tag: "titleAnimation",
                 flightShuttleBuilder: _flightShuttleBuilder,
-                child: Text(
-                  'CyberPizza',
-                  style: TextStyle(fontSize: 32),
+                child: Image.asset(
+                  "assets/applogo.png",
                 ),
               ),
             ),

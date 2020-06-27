@@ -54,6 +54,8 @@ flutter:
     - assets/helmet.svg
     - assets/neck.svg
     - assets/pistolet.svg
+    - assets/applogo.svg
+    - assets/applogo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

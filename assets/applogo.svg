@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="294px" height="176px" viewBox="0 0 294 176" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Logo </title>
+    <defs>
+        <text id="text-1" font-family="LinoleoScript, Linoleo Script" font-size="160" font-weight="normal" fill="#FFFFFF">
+            <tspan x="129" y="116">prime</tspan>
+        </text>
+        <filter x="-15.1%" y="-7.4%" width="127.0%" height="117.6%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.901960784   0 0 0 0 0.00392156863   0 0 0 0 0.925490196  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-3" font-family="LinoleoScript, Linoleo Script" font-size="160" font-weight="normal" fill="#FFFFFF">
+            <tspan x="129" y="116">prime</tspan>
+        </text>
+        <filter x="-15.1%" y="-7.4%" width="127.0%" height="117.6%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.901960784   0 0 0 0 0.00392156863   0 0 0 0 0.925490196  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Screens" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1.0_Splash" transform="translate(-46.000000, -323.000000)">
+            <g id="Logo-" transform="translate(46.000000, 323.000000)">
+                <g id="prime" fill="#FFFFFF" fill-opacity="1">
+                    <use filter="url(#filter-2)" xlink:href="#text-1"></use>
+                    <use xlink:href="#text-1"></use>
+                </g>
+                <g id="prime" fill="#FFFFFF" fill-opacity="1">
+                    <use filter="url(#filter-4)" xlink:href="#text-3"></use>
+                    <use xlink:href="#text-3"></use>
+                </g>
+                <text id="CYBORG" font-family="TurretRoad-ExtraBold, Turret Road" font-size="70" font-weight="600" fill="#FFFFFF">
+                    <tspan x="1" y="75">CYBORG</tspan>
+                </text>
+                <line x1="284" y1="7" x2="1" y2="7" id="Path-19" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"></line>
+                <path d="M63.8669309,92 L76,102 L0,102 L0,92 L63.8669309,92 Z M82.7372231,92 L95,102 L88.6666447,102 L76,92 L82.7372231,92 Z M96.7372231,92 L109,102 L102.666645,102 L90,92 L96.7372231,92 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
