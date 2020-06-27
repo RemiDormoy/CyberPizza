@@ -72,6 +72,8 @@
                     </g>
                 </g>
                 <rect id="Rectangle" fill="url(#linearGradient-5)" mask="url(#mask-2)" x="-1" y="191" width="376" height="412"></rect>
+                <circle id="Oval" stroke="#807F8E" mask="url(#mask-2)" cx="62" cy="775" r="4"></circle>
+                <circle id="Oval" stroke="#807F8E" mask="url(#mask-2)" cx="106" cy="796" r="4"></circle>
             </g>
         </g>
     </g>
