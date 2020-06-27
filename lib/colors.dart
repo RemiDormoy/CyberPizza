@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 const Color deepBlueDark = Color(0xFF03001F);
 const Color deepBlueMedium = Color(0xFF302670);
 const Color deepBlueLight = Color(0xFF676581);
+const Color gradientTop = Color(0xFF231C51);
+const Color gradientBottom = Color(0xFF423384);
 const Color white = Color(0xFFFFFFFF);
 const Color primary = Color(0xFFE601EC);
 const Color secondary = Color(0xFF0AFFFD);

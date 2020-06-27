@@ -99,7 +99,7 @@ class ProductPage extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 15.0),
+                padding: const EdgeInsets.only(top: 15.0, bottom: 60),
                 child: CyberButton(
                   text: "See product",
                   color: materialPrimary,
@@ -107,8 +107,15 @@ class ProductPage extends StatelessWidget {
               ),
               Container(
                   width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [gradientTop, gradientBottom],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    )
+                  ),
                   child: SizedBox(
-                      height: 142, width: 300.0,
+                      height: 100, width: 300.0,
                       child: _bottomList())), //
 
             ],

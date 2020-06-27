@@ -22,12 +22,12 @@ class ChelouBackgroundPainter extends CustomPainter {
       ..strokeWidth = 3
       ..color = deepBlueMedium
       ..style = PaintingStyle.fill;
-    var verticalPadding = 20.0;
+    var verticalPadding = 80.0;
     var paddingHorizontal = 50.0;
     var path = Path();
-    path..moveTo(0, size.height / 2 - 60);
-    path..lineTo(paddingHorizontal, size.height / 2 - 60);
-    path..lineTo(paddingHorizontal, 3 * size.height / 4);
+    path..moveTo(0, size.height / 2 - 120);
+    path..lineTo(paddingHorizontal, size.height / 2 - 120);
+    path..lineTo(paddingHorizontal, 3 * size.height / 4 - 60);
     path
       ..cubicTo(
         paddingHorizontal,
@@ -35,14 +35,14 @@ class ChelouBackgroundPainter extends CustomPainter {
         size.width - paddingHorizontal,
         size.height - verticalPadding,
         size.width - paddingHorizontal,
-        3 * size.height / 4,
+        3 * size.height / 4 - 60,
       );
 
-    path..lineTo(size.width - paddingHorizontal, size.height / 2 - 60);
-    path..lineTo(size.width, size.height / 2 - 60);
+    path..lineTo(size.width - paddingHorizontal, size.height / 2 - 120);
+    path..lineTo(size.width, size.height / 2 - 120);
     path..lineTo(size.width, size.height);
     path..lineTo(0, size.height);
-    path..lineTo(0, size.height / 2 - 60);
+    path..lineTo(0, size.height / 2 - 120);
     canvas.drawPath(path, paint);
   }
 
