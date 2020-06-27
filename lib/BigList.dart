@@ -3,8 +3,21 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class BigList extends StatefulWidget {
+
+  Function(int) onPageChanged;
+  int initialChild;
+  _BigListState _state = _BigListState();
+
   @override
-  _BigListState createState() => _BigListState();
+  _BigListState createState() {
+    return _state;
+  }
+
+  setPage(int page) {
+    _state.setPage(page);
+  }
+
+  BigList({this.onPageChanged, this.initialChild});
 }
 
 class _BigListState extends State<BigList> {
@@ -19,7 +32,7 @@ class _BigListState extends State<BigList> {
 
   @override
   void initState() {
-    pageController = PageController(initialPage: 1, viewportFraction: viewPortFraction);
+    pageController = PageController(initialPage: widget.initialChild, viewportFraction: viewPortFraction);
     pageController..addListener(_listener);
     super.initState();
   }
@@ -39,6 +52,7 @@ class _BigListState extends State<BigList> {
         onPageChanged: (pos) {
           setState(() {
             currentPage = pos;
+            widget.onPageChanged(pos);
           });
         },
       ),
@@ -86,5 +100,9 @@ class _BigListState extends State<BigList> {
         ),
       ),
     );
+  }
+
+  setPage(int page) {
+    pageController.jumpToPage(page);
   }
 }

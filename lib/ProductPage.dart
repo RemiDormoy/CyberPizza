@@ -14,8 +14,15 @@ class ProductPage extends StatefulWidget {
 }
 
 class Product extends State<ProductPage> {
+  var productFocused = 1;
+  BigList bigList;
+
   @override
   Widget build(BuildContext context) {
+    bigList = BigList(
+      onPageChanged: _onProductFocusChanged,
+      initialChild: productFocused,
+    );
     return Scaffold(
         body: Container(
       decoration: BoxDecoration(color: deepBlueDark),
@@ -86,16 +93,16 @@ class Product extends State<ProductPage> {
                 ),
               ),
               Expanded(
-                child: BigList(),
+                child: bigList,
               ),
               Text(
-                '/Cybernetic neck;',
+                titles[productFocused],
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 8.0),
                 child: Text(
-                  '<New - €234,99',
+                  prices[productFocused],
                   style: TextStyle(fontSize: 16, color: white.withOpacity(0.8)),
                 ),
               ),
@@ -123,35 +130,46 @@ class Product extends State<ProductPage> {
     ));
   }
 
+  var images = ['assets/eyeblue.png',
+      'assets/neck.png',
+      'assets/helmet.png',
+      'assets/armleft.png',
+      'assets/pistolet.png',
+      'assets/armright.png',
+      'assets/eyered.png'];
+
+  var titles = ['/Blue zooming eye;',
+    '/Cybernetic neck;',
+    '/Daft punk helmet;',
+    '/Left power arm;',
+    '/Energy boost (200ml);',
+    '/Right extensible arm;',
+    '/Red laser eye;'];
+
+  var prices = ['€31,89',
+    '<New - €234,99',
+    '€3231,89',
+    '€610,56',
+    '€11,00',
+    '€543,90',
+    '€31,89'];
+
   _bottomList() {
-    return ListView(
+    return ListView.builder(
       scrollDirection: Axis.horizontal,
-      children: <Widget>[
-        _itemView('assets/eyeblue.png'),
-        _itemView('assets/neck.png'),
-        _itemView('assets/helmet.png'),
-        _itemView('assets/armleft.png'),
-        _itemView('assets/armright.png'),
-        _itemView('assets/pistolet.png'),
-        _itemView('assets/eyered.png'),
-      ],
+      itemCount: images.length,
+      itemBuilder: _itemView,
     );
   }
 
-  String selected = "";
-
-  _itemView(String url) {
-    var isSelected = selected == url;
-    if (isSelected)
-      print(" url is " + url + "     so this is      true");
-    else
-      print(" url is " + url + "     so this is      false");
+  Widget _itemView(BuildContext context, int position) {
+    var isSelected = position == productFocused;
 
     var item = Container(
       height: 4.0,
       width: 56.0,
     );
-    if (url == selected) {
+    if (isSelected) {
       item = Container(
         height: 4.0,
         width: 56.0,
@@ -179,10 +197,8 @@ class Product extends State<ProductPage> {
     }
     return GestureDetector(
       onTap: () {
-        print(" here we are with selected is " + url);
-        print(" here we are with selected is " + selected);
         setState(() {
-          selected = url;
+          productFocused = position;
         });
       },
       child: Container(
@@ -193,7 +209,7 @@ class Product extends State<ProductPage> {
             Padding(
               padding: EdgeInsets.all(16.0),
               child: Image.asset(
-                url,
+                images[position],
                 height: 40.0,
                 width: 70,
                 fit: BoxFit.contain,
@@ -204,5 +220,12 @@ class Product extends State<ProductPage> {
         ),
       ),
     );
+  }
+
+  _onProductFocusChanged(int postition) {
+    setState(() {
+      productFocused = postition;
+      //bigList.setPage(postition);
+    });
   }
 }
