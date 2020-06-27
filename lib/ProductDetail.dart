@@ -31,11 +31,16 @@ class ProductDetail extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.topLeft,
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(30, 40, 0, 0),
-              child: SvgPicture.asset(
-                "assets/cyberback.svg",
-                semanticsLabel: 'Acme Logo',
+            child: GestureDetector(
+              onTap: () {
+                Navigator.of(context).pop();
+              },
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(30, 40, 0, 0),
+                child: SvgPicture.asset(
+                  "assets/cyberback.svg",
+                  semanticsLabel: 'Acme Logo',
+                ),
               ),
             ),
           ),
@@ -132,6 +137,7 @@ class ProductDetail extends StatelessWidget {
                             padding: const EdgeInsets.only(
                               top: 20,
                               left: 20,
+                              right: 20
                             ),
                             child: Text(
                               'Protect your neck with up to date tech, develop by our best experts and enjoy lifting up to 500kg with your head !',
