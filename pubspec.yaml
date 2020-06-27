@@ -54,6 +54,7 @@ flutter:
     - assets/grid.svg
     - assets/helmet.svg
     - assets/neck.svg
+    - assets/bottombutton_pink.svg
     - assets/pistolet.png
     - assets/armright.png
     - assets/eyeblue.png

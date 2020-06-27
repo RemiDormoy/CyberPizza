@@ -6,7 +6,14 @@ import 'BigList.dart';
 import 'ChelouBackgroundViolet.dart';
 import 'colors.dart';
 
-class ProductPage extends StatelessWidget {
+class ProductPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return Product();
+  }
+}
+
+class Product extends State<ProductPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,19 +90,13 @@ class ProductPage extends StatelessWidget {
               ),
               Text(
                 '/Cybernetic neck;',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18
-                ),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 8.0),
                 child: Text(
                   '<New - €234,99',
-                  style: TextStyle(
-                      fontSize: 16,
-                      color: white.withOpacity(0.8)
-                  ),
+                  style: TextStyle(fontSize: 16, color: white.withOpacity(0.8)),
                 ),
               ),
               Padding(
@@ -108,16 +109,13 @@ class ProductPage extends StatelessWidget {
               Container(
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [gradientTop, gradientBottom],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                    )
-                  ),
+                      gradient: LinearGradient(
+                    colors: [gradientTop, gradientBottom],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                  )),
                   child: SizedBox(
-                      height: 100, width: 300.0,
-                      child: _bottomList())), //
-
+                      height: 100, width: 300.0, child: _bottomList())), //
             ],
           ),
         ],
@@ -140,17 +138,69 @@ class ProductPage extends StatelessWidget {
     );
   }
 
+  String selected = "";
+
   _itemView(String url) {
-    return Container(
-      height: 40,
-      width: 70,
-      child: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Image.asset(
-          url,
-          height: 40.0,
-          width: 70,
-          fit: BoxFit.contain,
+    var isSelected = selected == url;
+    if (isSelected)
+      print(" url is " + url + "     so this is      true");
+    else
+      print(" url is " + url + "     so this is      false");
+
+    var item = Container(
+      height: 4.0,
+      width: 56.0,
+    );
+    if (url == selected) {
+      item = Container(
+        height: 4.0,
+        width: 56.0,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 0.75),
+          child: Container(
+            child: SvgPicture.asset(
+              "assets/bottombutton_pink.svg",
+              semanticsLabel: 'Acme Logo',
+            ),
+            decoration: BoxDecoration(
+              color: Colors.transparent,
+              boxShadow: [
+                BoxShadow(
+                  color: primary.withOpacity(0.5),
+                  spreadRadius: 1,
+                  blurRadius: 4,
+                  offset: Offset.zero,
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
+    return GestureDetector(
+      onTap: () {
+        print(" here we are with selected is " + url);
+        print(" here we are with selected is " + selected);
+        setState(() {
+          selected = url;
+        });
+      },
+      child: Container(
+        height: 40,
+        width: 70,
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Image.asset(
+                url,
+                height: 40.0,
+                width: 70,
+                fit: BoxFit.contain,
+              ),
+            ),
+            item
+          ],
         ),
       ),
     );
