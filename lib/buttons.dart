@@ -16,30 +16,23 @@ class CyberButton extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 0.75),
-          child: Material(
-            elevation: 0.0,
-            color: Colors.transparent,
-            type: MaterialType.button,
-            shape: BeveledRectangleBorder(
-                side: BorderSide(color: secondary, width: 1.5),
-                borderRadius:
-                    new BorderRadius.only(bottomRight: Radius.circular(15))),
-            child: Container(
-              child: Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Text(
-                  text,
-                  style:
-                      TextStyle(color: secondary, fontWeight: FontWeight.bold),
-                ),
-              ),
+          padding: const EdgeInsets.only(left: 1.5),
+          child: Container(
+            child: CustomPaint(
+                painter: NeonPainter(),
+                child: Container(
+                  padding: EdgeInsets.all(15),
+                  child: Text(text, style: TextStyle(color: color, fontSize: 22)),
+                )
             ),
           ),
         ),
-        SvgPicture.asset(
-          "assets/underlinebutton.svg",
-          semanticsLabel: 'Acme Logo',
+        Padding(
+          padding: const EdgeInsets.only(top: 1.5),
+          child: SvgPicture.asset(
+            "assets/underlinebutton.svg",
+            semanticsLabel: 'Acme Logo',
+          ),
         ),
       ],
     );
@@ -77,4 +70,33 @@ class CyberActionButton extends StatelessWidget {
       ),
     );
   }
+}
+
+class NeonPainter extends CustomPainter {
+  NeonPainter();
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final shadowPaint = Paint()
+      ..strokeWidth = 4
+      ..color = secondary
+      ..style = PaintingStyle.stroke
+      ..maskFilter = MaskFilter.blur(BlurStyle.normal, 2);
+    final borderPaint = Paint()
+      ..strokeWidth = 2
+      ..color = Colors.white
+      ..style = PaintingStyle.stroke;
+    var path = Path();
+    path..moveTo(0, 0);
+    path..lineTo(size.width, 0);
+    path..lineTo(size.width, size.height - 20);
+    path..lineTo(size.width - 20, size.height);
+    path..lineTo(0, size.height);
+    path..lineTo(0, 0);
+    canvas.drawPath(path, shadowPaint);
+    canvas.drawPath(path, borderPaint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) => true;
 }

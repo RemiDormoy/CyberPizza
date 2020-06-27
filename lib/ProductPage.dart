@@ -31,7 +31,7 @@ class ProductPage extends StatelessWidget {
               ),
               Expanded(
                 child: Center(
-                  child: CyberActionButton(text: "Je suis un boulet",),
+                  child: CyberButton(text: "Je suis un boulet",),
                 ),
               )
             ],
