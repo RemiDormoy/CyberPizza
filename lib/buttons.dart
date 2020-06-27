@@ -22,9 +22,24 @@ class CyberButton extends StatelessWidget {
                 painter: NeonPainter(),
                 child: Container(
                   padding: EdgeInsets.all(15),
-                  child: Text(text, style: TextStyle(color: color, fontSize: 22)),
-                )
-            ),
+                  child: Text(text,
+                      style: TextStyle(
+                        color: color,
+                        fontSize: 22,
+                        shadows: [
+                          Shadow(
+                            offset: Offset.zero,
+                            blurRadius: 4.0,
+                            color: secondary,
+                          ),
+                          Shadow(
+                            offset: Offset.zero,
+                            blurRadius: 8.0,
+                            color: color,
+                          ),
+                        ],
+                      )),
+                )),
           ),
         ),
         Padding(
