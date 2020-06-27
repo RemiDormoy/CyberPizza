@@ -5,8 +5,9 @@ import 'colors.dart';
 
 class CyberButton extends StatelessWidget {
   String text;
+  Color color;
 
-  CyberButton({this.text}) : super();
+  CyberButton({this.text, this.color = secondary}) : super();
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,8 @@ class CyberButton extends StatelessWidget {
                 padding: const EdgeInsets.all(15.0),
                 child: Text(
                   text,
-                  style: TextStyle(color: secondary, fontWeight: FontWeight.bold),
+                  style:
+                      TextStyle(color: secondary, fontWeight: FontWeight.bold),
                 ),
               ),
             ),
@@ -40,6 +42,39 @@ class CyberButton extends StatelessWidget {
           semanticsLabel: 'Acme Logo',
         ),
       ],
+    );
+  }
+}
+
+class CyberActionButton extends StatelessWidget {
+  String text;
+  Color color;
+  Color textColor;
+
+  CyberActionButton({
+    this.text,
+    this.color = materialPrimary,
+    this.textColor = white,
+  }) : super();
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      elevation: 0.0,
+      color: color,
+      type: MaterialType.canvas,
+      shape: BeveledRectangleBorder(
+          borderRadius:
+              new BorderRadius.only(bottomRight: Radius.circular(15))),
+      child: Container(
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Text(
+            text,
+            style: TextStyle(color: textColor, fontWeight: FontWeight.bold),
+          ),
+        ),
+      ),
     );
   }
 }
