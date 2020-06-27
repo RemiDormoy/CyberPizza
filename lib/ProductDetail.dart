@@ -29,21 +29,6 @@ class ProductDetail extends StatelessWidget {
               ),
             ),
           ),
-          Align(
-            alignment: Alignment.topLeft,
-            child: GestureDetector(
-              onTap: () {
-                Navigator.of(context).pop();
-              },
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(30, 40, 0, 0),
-                child: SvgPicture.asset(
-                  "assets/cyberback.svg",
-                  semanticsLabel: 'Acme Logo',
-                ),
-              ),
-            ),
-          ),
           Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
@@ -177,6 +162,23 @@ class ProductDetail extends StatelessWidget {
                       ],
                     ),
                   )),
+            ),
+          ),
+
+          Align(
+            alignment: Alignment.topLeft,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.of(context).pop();
+                print('yolo');
+              },
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(30, 40, 0, 0),
+                child: SvgPicture.asset(
+                  "assets/cyberback.svg",
+                  semanticsLabel: 'Acme Logo',
+                ),
+              ),
             ),
           ),
         ],
