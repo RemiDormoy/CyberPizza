@@ -72,6 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: SvgPicture.asset(
                 "assets/backgroundsplash.svg",
                 semanticsLabel: 'Acme Logo',
+                fit: BoxFit.fill,
               ),
             ),
             Container(
@@ -80,6 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: SvgPicture.asset(
                 "assets/grid.svg",
                 semanticsLabel: 'Acme Logo',
+                fit: BoxFit.fill,
               ),
             ),
             Center(

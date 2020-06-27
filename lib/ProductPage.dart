@@ -19,6 +19,7 @@ class ProductPage extends StatelessWidget {
             child: SvgPicture.asset(
               "assets/grid.svg",
               semanticsLabel: 'Acme Logo',
+              fit: BoxFit.fill,
             ),
           ),
           ChelouBackgroundViolet(),
