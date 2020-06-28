@@ -22,46 +22,55 @@ class _OkCyborgDialogState extends State<OkCyborgDialog> {
   Widget build(BuildContext context) {
     Timer(
         Duration(seconds: 1, milliseconds: 500),
-        () => {
-              if (!wasPlayed1)
-                {
-                  wasPlayed1 = true,
-                  setState(() {
-                    dialog.add("TELL ME YOUR DELIVERY ADDRESS");
-                  })
-                }
-            });
+            () =>
+        {
+          if (!wasPlayed1)
+            {
+              wasPlayed1 = true,
+              setState(() {
+                dialog.add("TELL ME YOUR DELIVERY ADDRESS");
+              })
+            }
+        });
     Timer(
         Duration(seconds: 3, milliseconds: 500),
-        () => {
-              if (!wasPlayed2)
-                {
-                  wasPlayed2 = true,
-                  setState(() {
-                    dialog.add("14 AV CORBERA SET AS DELIVERY ADDRESS");
-                  })
-                }
-            });
+            () =>
+        {
+          if (!wasPlayed2)
+            {
+              wasPlayed2 = true,
+              setState(() {
+                dialog.add("14 AV CORBERA SET AS DELIVERY ADDRESS");
+              })
+            }
+        });
     Timer(
         Duration(seconds: 5),
-        () => {
-              if (!wasPlayed3)
-                {
-                  wasPlayed3 = true,
-                  setState(() {
-                    dialog.add("IDENTIFICATION SUCEEDED");
-                  })
-                }
-            });
+            () =>
+        {
+          if (!wasPlayed3)
+            {
+              wasPlayed3 = true,
+              setState(() {
+                dialog.add("IDENTIFICATION SUCEEDED");
+              })
+            }
+        });
     Timer(
         Duration(seconds: 10, milliseconds: 500),
-        () => {
-              if (!wasPlayed4)
-                {
-                  wasPlayed4 = true,
-                  Navigator.of(context).pushNamed("/products", arguments: {"buyCompleted" : true})
-                }
-            });
+            () =>
+        {
+          if (!wasPlayed4)
+            {
+              wasPlayed4 = true,
+              Navigator.of(context).pushNamed("/products", arguments: {"buyCompleted" : true})
+
+//              Navigator.of(context).pushNamedAndRemoveUntil(
+//                  "/products", (route) => route.settings.name, )
+//              //hNamed(, arguments: {"buyCompleted" : true})
+
+            }
+        });
     return ListView.builder(
       itemCount: dialog.length,
       itemBuilder: _buildItem,

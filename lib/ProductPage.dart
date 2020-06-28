@@ -31,11 +31,12 @@ class Product extends State<ProductPage> {
 //    _isAnimated = true;
 
     if (_hasShownDialog == false && rcvdData != null && rcvdData.containsKey("buyCompleted")) {
+      print("pop up is shwon");
       _isAnimated = true;
       _isAddedBeforeAnim = true;
       _hasShownDialog = true;
 
-      ssshowDialog(context);
+//      ssshowDialog(context);
 //      Timer(
 //          Duration(seconds: 0, milliseconds: 0),
 //              () => {
@@ -54,7 +55,8 @@ class Product extends State<ProductPage> {
 
 //      print("rcvd fdata ${rcvdData['buyCompleted']}");
 //      ssshowDialog(context);
-    } else {
+    } else if (rcvdData == null && (_isAnimated == false || _isAddedBeforeAnim == false)) {
+      print("pop up is shwon");
       var duration = 380;
       if (_isAddedBeforeAnim == false) {
         duration = 380;
@@ -65,7 +67,7 @@ class Product extends State<ProductPage> {
           Duration(seconds: 0, milliseconds: duration),
           () => {
                 setState(() {
-                  print("seting state");
+                  print("seting state ???");
                   if (_isAddedBeforeAnim == false) {
                     _isAddedBeforeAnim = true;
                   } else {
@@ -144,7 +146,7 @@ class Product extends State<ProductPage> {
                   padding: const EdgeInsets.all(15),
                   child: GestureDetector(
                     onTap: () {
-//                      ssshowDialog(context);
+                      ssshowDialog(context);
                     },
                     child: CyberButton(
                       text: "Bionic arms",
@@ -251,6 +253,7 @@ class Product extends State<ProductPage> {
   }
 
   ssshowDialog(BuildContext context) {
+    print("pop up showing now");
     showDialog(
       context: context,
       builder: (BuildContext context) => CustomDialog(
