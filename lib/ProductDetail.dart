@@ -221,6 +221,8 @@ class _ProductDetailState extends State<ProductDetail>
                   },
                   child: CyberActionButton(
                     text: "Buy with OK CYBORG",
+                    textSize: 18,
+                    horizontalPadding: 30,
                   ),
                 ),
               )
@@ -239,7 +241,7 @@ class _ProductDetailState extends State<ProductDetail>
     return Transform.scale(
       scale: scale,
       child: Transform.translate(
-        offset: Offset(-zoomingAnimation.value * MediaQuery.of(context).size.width / 4, 0.0),
+        offset: Offset(-zoomingAnimation.value * MediaQuery.of(context).size.width / 4, -zoomingAnimation.value * 20),
         child: buildFlottingImage(),
       ),
     );
@@ -253,8 +255,8 @@ class _ProductDetailState extends State<ProductDetail>
         children: [
           Center(child: Image.asset("assets/neck.png")),
           Positioned(
-            left: MediaQuery.of(context).size.width * 12 / 100,
-            top: MediaQuery.of(context).size.height * 11 / 100,
+            left: (MediaQuery.of(context).size.width - 80) * 16 / 100,
+            top: (MediaQuery.of(context).size.height - 450) * 33 / 100,
             width: 25,
             height: 25,
             child: SvgPicture.asset(
@@ -264,8 +266,8 @@ class _ProductDetailState extends State<ProductDetail>
             ),
           ),
           Positioned(
-            left: MediaQuery.of(context).size.width * 26 / 100,
-            top: MediaQuery.of(context).size.height * 27 / 100,
+            left: (MediaQuery.of(context).size.width - 80) * 34 / 100,
+            top: (MediaQuery.of(context).size.height - 450) * 70 / 100,
             width: 25,
             height: 25,
             child: SvgPicture.asset(
@@ -275,13 +277,12 @@ class _ProductDetailState extends State<ProductDetail>
             ),
           ),
           Positioned(
-            left: MediaQuery.of(context).size.width * 52 / 100,
-            top: MediaQuery.of(context).size.height * 13 / 100,
+            left: (MediaQuery.of(context).size.width - 80) * 68 / 100,
+            top: (MediaQuery.of(context).size.height - 450) * 34 / 100,
             width: 25,
             height: 25,
             child: GestureDetector(
               onTap: () {
-                print("le controller commence !");
                 zoomingController.forward();
               },
               child: SvgPicture.asset(
@@ -304,40 +305,41 @@ class _ProductDetailState extends State<ProductDetail>
             alignment: Alignment.centerRight,
             child: Transform.translate(
               offset: Offset(MediaQuery.of(context).size.width / 4, 0),
-              child: Container(
-                width: (MediaQuery.of(context).size.width / 2 - 20),
-                child: Padding(
-                  padding: const EdgeInsets.all(40),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("ENHANCED KEVLAR PIECE", style: TextStyle(fontSize: 10),),
-                      Text("A22-C5637", style: TextStyle(fontSize: 8),),
-                      Text(
-                        '/ / / / / / / / / / / / / / / / / / / / / ',
-                        style: TextStyle(
-                            fontSize: 5,
-                            fontFamily: GoogleFonts.roboto().fontFamily),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top : 4.0),
-                        child: Text("Yolo mzboab goiubouerb guboiuberg gbgzeuboegbg giubergb ugbbiu iubuibg oeu ueiubb", style: TextStyle(fontSize: 8),),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10),
-                        child: GestureDetector(
-                          onTap: () {
-                            zoomingController.reverse();
-                          },
+              child: GestureDetector(
+                onTap: () {
+                  zoomingController.reverse();
+                },
+                child: Container(
+                  width: (MediaQuery.of(context).size.width / 2 - 20),
+                  child: Padding(
+                    padding: const EdgeInsets.all(40),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("ENHANCED KEVLAR PIECE", style: TextStyle(fontSize: 10),),
+                        Text("A22-C5637", style: TextStyle(fontSize: 8),),
+                        Text(
+                          '/ / / / / / / / / / / / / / / / / / / / / ',
+                          style: TextStyle(
+                              fontSize: 5,
+                              fontFamily: GoogleFonts.roboto().fontFamily),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top : 4.0),
+                          child: Text("Yolo mzboab goiubouerb guboiuberg gbgzeuboegbg giubergb ugbbiu iubuibg oeu ueiubb", style: TextStyle(fontSize: 8),),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10),
                           child: CyberActionButton(
                             color: white,
                             textColor: deepBlueDark,
-                            textSize: 8,
+                            textSize: 9,
+                            verticalPadding: 5,
                             text: "See less",
                           ),
-                        ),
-                      )
-                    ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),

@@ -101,6 +101,8 @@ class CyberActionButton extends StatelessWidget {
   Color color;
   Color textColor;
   double textSize;
+  double horizontalPadding;
+  double verticalPadding;
 
 
   CyberActionButton({
@@ -108,6 +110,8 @@ class CyberActionButton extends StatelessWidget {
     this.color = materialPrimary,
     this.textColor = white,
     this.textSize = 22,
+    this.horizontalPadding = 15,
+    this.verticalPadding = 10,
   }) : super();
 
   @override
@@ -122,11 +126,12 @@ class CyberActionButton extends StatelessWidget {
             child: CustomPaint(
                 painter: CyberAction(color: color, notchSize: textSize - 2),
                 child: Container(
-                  padding: EdgeInsets.all(textSize / 2 + 4),
+                  padding: EdgeInsets.symmetric(vertical: verticalPadding, horizontal: horizontalPadding),
                   child: Text(text,
                       style: TextStyle(
                         color: textColor,
                         fontSize: textSize,
+                        fontWeight: FontWeight.bold,
                         shadows: [
                           Shadow(
                             offset: Offset.zero,
