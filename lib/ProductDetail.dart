@@ -169,7 +169,7 @@ class _ProductDetailState extends State<ProductDetail>
                       left: 20,
                     ),
                     child: Text(
-                      '//////////////////////////////////////////////////////////////////////////////',
+                      '/ / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / ',
                       style: TextStyle(
                           fontSize: 10,
                           fontFamily: GoogleFonts.roboto().fontFamily),
@@ -326,7 +326,7 @@ class _ProductDetailState extends State<ProductDetail>
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top : 4.0),
-                          child: Text("Yolo mzboab goiubouerb guboiuberg gbgzeuboegbg giubergb ugbbiu iubuibg oeu ueiubb", style: TextStyle(fontSize: 8),),
+                          child: Text("Kevlar® has a unique combination of high strength, high modulus, toughness and thermal stability", style: TextStyle(fontSize: 8),),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 10),

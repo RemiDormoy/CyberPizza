@@ -2,9 +2,7 @@ import 'package:cyberpizza/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
-import 'ChelouBackgroundViolet.dart';
-import 'ProductDetail.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomDialog extends StatelessWidget {
   final String title, description, buttonText;
@@ -32,123 +30,122 @@ class CustomDialog extends StatelessWidget {
   dialogContent(BuildContext context) {
     return Stack(
       children: <Widget>[
-//        card(context),
-    Container(
-    width: double.infinity,
-      height: MediaQuery
-          .of(context)
-          .size
-          .height / 4,
-      child: CustomPaint(
-        painter: DialogNeoPainter(),
-        child: Container(
-          padding: EdgeInsets.symmetric(
-            vertical: 15,
-            horizontal: 15,
-          ),
-          child: Padding(
-            padding: const EdgeInsets.only(left: 8.0),
-            child: Stack(
-              children: [Align(alignment:Alignment.topRight,
-                child:  Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: SvgPicture.asset(
-                      "assets/croix.svg",
-                      semanticsLabel: 'Acme Logo',
-                      color: Colors.black,
-                      width: 25,
-                      height: 25,
-                    ),
-                  ),
-                ),),
-                Padding(
-                  padding: const EdgeInsets.only(top:30),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                    Expanded(
-                    flex: 1,
-                    child: Expanded(
-                    child: Text(
-                    '/Success;',
-                      style: TextStyle(
-                        color: primary,
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                        shadows: [
-                          Shadow(
-                            offset: Offset(-2, 0),
-                            blurRadius: 2,
-                            color: secondary,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-          ),
-          Expanded(
-                  flex: 1,
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Cybernetic neck - \$234,99',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          textAlign: TextAlign.left,
-                        ),
-                        Text(
-                          '//////////////////////////////////////',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          textAlign: TextAlign.left,
-                        ),
-                        Text(
-                          'Your order will be materialize soon.',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          textAlign: TextAlign.left,
-                        ),
-                        Text(
-                          'Thank you for shopping with us.',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          textAlign: TextAlign.left,
-                        ),
-                      ],
-                    ),
-                  ),
-          ),
-          ],
-        ),
+        Container(
+          width: double.infinity,
+          height: 160,
+          child: CustomPaint(
+              painter: DialogNeoPainter(),
+              child: Container(
+                padding: EdgeInsets.symmetric(
+                  vertical: 15,
+                  horizontal: 15,
                 ),
-              ],
-            ),
-      ),
-    )),
-    )
-    ,
-    //...top circlular image part,
-    ]
-    ,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Stack(
+                    children: [
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(30.0, 10, 10, 30),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: SvgPicture.asset(
+                              "assets/croix.svg",
+                              semanticsLabel: 'Acme Logo',
+                              color: Colors.black,
+                              width: 20,
+                              height: 20,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              '/Success;',
+                              style: TextStyle(
+                                color: primary,
+                                fontSize: 28,
+                                fontWeight: FontWeight.w900,
+                                shadows: [
+                                  Shadow(
+                                    offset: Offset(-2, 0),
+                                    blurRadius: 2,
+                                    color: secondary,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 8.0),
+                                    child: Text(
+                                      'Cybernetic neck - \$234,99',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      textAlign: TextAlign.left,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 6),
+                                    child: Text(
+                                      '/ / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: GoogleFonts.roboto().fontFamily
+                                      ),
+                                      textAlign: TextAlign.left,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 6.0),
+                                    child: Text(
+                                      'Your order will materialize soon.',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      textAlign: TextAlign.left,
+                                    ),
+                                  ),
+                                  Text(
+                                    'Thank you for shopping with us.',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              )),
+        ),
+        //...top circlular image part,
+      ],
     );
   }
 }

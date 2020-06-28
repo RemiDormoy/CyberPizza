@@ -134,14 +134,9 @@ class Product extends State<ProductPage> {
                 alignment: Alignment.topLeft,
                 child: Padding(
                   padding: const EdgeInsets.all(15),
-                  child: GestureDetector(
-                    onTap: () {
-                      ssshowDialog(context);
-                    },
-                    child: CyberButton(
-                      text: "Bionic arms",
-                      withArrow: true,
-                    ),
+                  child: CyberButton(
+                    text: "Trending",
+                    withArrow: true,
                   ),
                 ),
               ),

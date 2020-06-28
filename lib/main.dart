@@ -19,6 +19,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      debugShowMaterialGrid: false,
+      showSemanticsDebugger: false,
       theme: ThemeData(
         primarySwatch: materialPrimary,
         textTheme: GoogleFonts.turretRoadTextTheme().apply(
@@ -77,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 if (!wasPlayed)
                   {
                     wasPlayed = true,
-                    Navigator.of(context).pushNamed("/products")
+                    Navigator.of(context).pushReplacementNamed("/products")
                   }
               });
     }
@@ -135,7 +138,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 // The green box must be a child of the AnimatedOpacity widge
 
                 child: Container(
-                  margin: const EdgeInsets.only(bottom: 36.0),
+                  margin: const EdgeInsets.only(bottom: 80.0),
                   alignment: Alignment.bottomCenter,
                   child: Padding(
                     padding: const EdgeInsets.only(top: 8.0),

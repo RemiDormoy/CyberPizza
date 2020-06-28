@@ -21,7 +21,7 @@ class _OkCyborgDialogState extends State<OkCyborgDialog> {
   @override
   Widget build(BuildContext context) {
     Timer(
-        Duration(seconds: 1, milliseconds: 500),
+        Duration(seconds: 2),
             () =>
         {
           if (!wasPlayed1)
@@ -33,7 +33,7 @@ class _OkCyborgDialogState extends State<OkCyborgDialog> {
             }
         });
     Timer(
-        Duration(seconds: 3, milliseconds: 500),
+        Duration(seconds: 4, milliseconds: 500),
             () =>
         {
           if (!wasPlayed2)
@@ -45,7 +45,7 @@ class _OkCyborgDialogState extends State<OkCyborgDialog> {
             }
         });
     Timer(
-        Duration(seconds: 5),
+        Duration(seconds: 7),
             () =>
         {
           if (!wasPlayed3)
@@ -57,7 +57,7 @@ class _OkCyborgDialogState extends State<OkCyborgDialog> {
             }
         });
     Timer(
-        Duration(seconds: 1, milliseconds: 500),
+        Duration(seconds: 9),
             () =>
         {
           if (!wasPlayed4)
