@@ -61,6 +61,8 @@ flutter:
     - assets/eyeblue.png
     - assets/eyered.png
     - assets/helmet.png
+    - assets/backgroundcyborgid.svg
+    - assets/backgroundcyborgid.png
     - assets/neck.png
     - assets/pistolet.svg
     - assets/applogo.svg

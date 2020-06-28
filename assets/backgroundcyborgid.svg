@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="813px" height="892px" viewBox="0 0 813 892" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Background_Cyborg ID</title>
+    <defs>
+        <rect id="path-1" x="229" y="63" width="378" height="813"></rect>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.400486233" offset="53.6132812%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.400486233" offset="53.6132812%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="54.8585486%" gradientTransform="translate(0.500000,0.500000),scale(1.000000,0.911435),rotate(90.000000),scale(1.000000,0.975355),translate(-0.500000,-0.500000)" id="radialGradient-5">
+            <stop stop-color="#0A022D" offset="0%"></stop>
+            <stop stop-color="#0A022D" offset="34.1523718%"></stop>
+            <stop stop-color="#03001F" offset="64.9889147%"></stop>
+            <stop stop-color="#03001F" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Screens" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="4.0_Confirm" transform="translate(229.000000, 63.000000)">
+            <g id="Background_Cyborg-ID" transform="translate(-229.000000, -63.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Rectangle" opacity="0.5"></g>
+                <g id="Group-3" opacity="0.603841146" mask="url(#mask-2)" stroke="url(#linearGradient-3)">
+                    <g transform="translate(277.500000, 64.000000)" id="Path-3" opacity="0.204520089">
+                        <line x1="0.5" y1="0" x2="0.5" y2="812"></line>
+                        <line x1="56.5" y1="0" x2="56.5" y2="812"></line>
+                        <line x1="112.5" y1="0" x2="112.5" y2="812"></line>
+                        <line x1="168.5" y1="0" x2="168.5" y2="812"></line>
+                        <line x1="224.5" y1="0" x2="224.5" y2="812"></line>
+                        <line x1="280.5" y1="0" x2="280.5" y2="812"></line>
+                    </g>
+                </g>
+                <g id="Group-3" opacity="0.556175595" mask="url(#mask-2)" stroke="url(#linearGradient-4)">
+                    <g transform="translate(417.000000, 400.500000) rotate(-270.000000) translate(-417.000000, -400.500000) translate(80.000000, 212.500000)" id="Path-3" opacity="0.204520089">
+                        <line x1="1" y1="0.5" x2="1" y2="375.5"></line>
+                        <line x1="57" y1="0.5" x2="57" y2="375.5"></line>
+                        <line x1="113" y1="0.5" x2="113" y2="375.5"></line>
+                        <line x1="169" y1="0.5" x2="169" y2="375.5"></line>
+                        <line x1="225" y1="0.5" x2="225" y2="375.5"></line>
+                        <line x1="281" y1="0.5" x2="281" y2="375.5"></line>
+                        <line x1="337" y1="0.5" x2="337" y2="375.5"></line>
+                        <line x1="393" y1="0.5" x2="393" y2="375.5"></line>
+                        <line x1="449" y1="0.5" x2="449" y2="375.5"></line>
+                        <line x1="505" y1="0.5" x2="505" y2="375.5"></line>
+                        <line x1="561" y1="0.5" x2="561" y2="375.5"></line>
+                        <line x1="617" y1="0.5" x2="617" y2="375.5"></line>
+                        <line x1="673" y1="0.5" x2="673" y2="375.5"></line>
+                    </g>
+                </g>
+                <rect id="Rectangle" fill="url(#radialGradient-5)" mask="url(#mask-2)" x="0" y="0" width="813" height="892"></rect>
+            </g>
+        </g>
+    </g>
+</svg>
