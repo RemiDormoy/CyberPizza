@@ -61,28 +61,26 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     if (delayTextAppear == false && wasPlayed == false) {
-      print("yallah firstCase");
       delayTextAppear = true;
       Timer(
-          Duration(seconds: 1, milliseconds: 600),
-              () => {
-              setState(() {
-                delayTextAppear = true;
-                delayTextAppearReady = true;
-              })
-          });
+          Duration(seconds: 2, milliseconds: 222),
+          () => {
+                setState(() {
+                  delayTextAppear = true;
+                  delayTextAppearReady = true;
+                })
+              });
     } else if (!wasPlayed) {
-      print("yallah secondCase");
-
       Timer(
-          Duration(seconds: 4, milliseconds: 240),
-              () => {
-            if (!wasPlayed) {
-              wasPlayed = true,
-              Navigator.of(context).pushNamed("/products")
-            }
-          });
-  }
+          Duration(seconds: 4, milliseconds: 40),
+          () => {
+                if (!wasPlayed)
+                  {
+                    wasPlayed = true,
+                    Navigator.of(context).pushNamed("/products")
+                  }
+              });
+    }
 
     return Scaffold(
       body: Container(
@@ -130,8 +128,8 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             AnimatedOpacity(
-              // If the widget is visible, animate to 0.0 (invisible).
-              // If the widget is hidden, animate to 1.0 (fully visible).
+                // If the widget is visible, animate to 0.0 (invisible).
+                // If the widget is hidden, animate to 1.0 (fully visible).
                 opacity: delayTextAppearReady ? 1.0 : 0.0,
                 duration: Duration(milliseconds: 500),
                 // The green box must be a child of the AnimatedOpacity widge
@@ -139,8 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Container(
                   margin: const EdgeInsets.only(bottom: 36.0),
                   alignment: Alignment.bottomCenter,
-                  child:
-                  Padding(
+                  child: Padding(
                     padding: const EdgeInsets.only(top: 8.0),
                     child: Text(
                       "Best bionic parts in town",
@@ -148,9 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           fontSize: 16, color: white.withOpacity(0.8)),
                     ),
                   ),
-
-                )
-            ),
+                )),
           ],
         ),
       ),

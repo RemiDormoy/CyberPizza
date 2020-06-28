@@ -21,26 +21,59 @@ class Product extends State<ProductPage> {
   BigList bigList;
   var _isAnimated = false;
   var _isAddedBeforeAnim = false;
+  var _hasShownDialog = false;
 
   @override
   Widget build(BuildContext context) {
-    var duration = 380;
-    if (_isAddedBeforeAnim == false) {
-      duration = 380;
+    final Map<String, Object> rcvdData =
+        ModalRoute.of(context).settings.arguments;
+//    _isAddedBeforeAnim = true;
+//    _isAnimated = true;
+
+    if (_hasShownDialog == false && rcvdData != null && rcvdData.containsKey("buyCompleted")) {
+      _isAnimated = true;
+      _isAddedBeforeAnim = true;
+      _hasShownDialog = true;
+
+      ssshowDialog(context);
+//      Timer(
+//          Duration(seconds: 0, milliseconds: 0),
+//              () => {
+//            setState(() {
+//              print("seting state");
+//                _isAddedBeforeAnim = true;
+//                _isAnimated = true;
+//
+//              Timer(
+//                  Duration(seconds: 0, milliseconds: 430),
+//                      () => {
+//                    ssshowDialog(context),
+//                  });
+//            }),
+//          });
+
+//      print("rcvd fdata ${rcvdData['buyCompleted']}");
+//      ssshowDialog(context);
     } else {
-      duration = 94;
+      var duration = 380;
+      if (_isAddedBeforeAnim == false) {
+        duration = 380;
+      } else {
+        duration = 94;
+      }
+      Timer(
+          Duration(seconds: 0, milliseconds: duration),
+          () => {
+                setState(() {
+                  print("seting state");
+                  if (_isAddedBeforeAnim == false) {
+                    _isAddedBeforeAnim = true;
+                  } else {
+                    _isAnimated = true;
+                  }
+                })
+              });
     }
-    Timer(
-        Duration(seconds: 0, milliseconds: duration),
-        () => {
-              setState(() {
-                if (_isAddedBeforeAnim == false) {
-                  _isAddedBeforeAnim = true;
-                } else {
-                  _isAnimated = true;
-                }
-              })
-            });
 
     bigList = BigList(
       onPageChanged: _onProductFocusChanged,
@@ -111,7 +144,7 @@ class Product extends State<ProductPage> {
                   padding: const EdgeInsets.all(15),
                   child: GestureDetector(
                     onTap: () {
-                      ssshowDialog(context);
+//                      ssshowDialog(context);
                     },
                     child: CyberButton(
                       text: "Bionic arms",
@@ -141,6 +174,25 @@ class Product extends State<ProductPage> {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
+      child:AnimatedOpacity(
+        // If the widget is visible, animate to 0.0 (invisible).
+        // If the widget is hidden, animate to 1.0 (fully visible).
+        opacity: _isAnimated ? 1.0 : 0.0,
+        duration: Duration(milliseconds: 500),
+        // The green box must be a child of the AnimatedOpacity widge
+
+        child: ChelouBackgroundViolet()),
+    );
+//    }
+  }
+
+ Widget animationAlphaContent() {
+    if (_isAddedBeforeAnim) {
+    } else {
+      return Container();
+    }
+
+    return Expanded(
       child: AnimatedOpacity(
           // If the widget is visible, animate to 0.0 (invisible).
           // If the widget is hidden, animate to 1.0 (fully visible).
@@ -148,76 +200,53 @@ class Product extends State<ProductPage> {
           duration: Duration(milliseconds: 500),
           // The green box must be a child of the AnimatedOpacity widge
 
-          child: ChelouBackgroundViolet()),
+          child: contentAnimated()),
     );
 //    }
   }
 
-  Widget animationAlphaContent() {
-    if (_isAddedBeforeAnim) {
-    } else {
-      return Container();
-    }
-
-    return Expanded(
-        child: AnimatedOpacity(
-        // If the widget is visible, animate to 0.0 (invisible).
-        // If the widget is hidden, animate to 1.0 (fully visible).
-          opacity: _isAnimated ? 1.0 : 0.0,
-          duration: Duration(milliseconds: 500),
-          // The green box must be a child of the AnimatedOpacity widge
-
-          child: contentAnimated()
-      ),
-      );
-//    }
-  }
-
   contentAnimated() {
-    return Container( child:
-    Column(
-      children: [Expanded(
-        child: bigList,
-      ),
-        Text(
-          titles[productFocused],
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 8.0),
-          child: Text(
-            prices[productFocused],
-            style: TextStyle(
-                fontSize: 16, color: white.withOpacity(0.8)),
+    return Container(
+      child: Column(
+        children: [
+          Expanded(
+            child: bigList,
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 15.0, bottom: 60),
-          child: GestureDetector(
-            onTap: () {
-              Navigator.of(context).pushNamed("/detail");
-            },
-            child: CyberButton(
-              text: "See product",
-              color: materialPrimary,
+          Text(
+            titles[productFocused],
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0),
+            child: Text(
+              prices[productFocused],
+              style: TextStyle(fontSize: 16, color: white.withOpacity(0.8)),
             ),
           ),
-        ),
-        Container(
-            width: MediaQuery
-                .of(context)
-                .size
-                .width,
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [gradientTop, gradientBottom],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                )),
-            child: SizedBox(
-                height: 100, width: 300.0, child: _bottomList())), //
-      ],
-    ),
+          Padding(
+            padding: const EdgeInsets.only(top: 15.0, bottom: 60),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.of(context).pushNamed("/detail");
+              },
+              child: CyberButton(
+                text: "See product",
+                color: materialPrimary,
+              ),
+            ),
+          ),
+          Container(
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                colors: [gradientTop, gradientBottom],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              )),
+              child:
+                  SizedBox(height: 100, width: 300.0, child: _bottomList())), //
+        ],
+      ),
     ); //here end
   }
 

@@ -16,6 +16,7 @@ class _OkCyborgDialogState extends State<OkCyborgDialog> {
   var wasPlayed1 = false;
   var wasPlayed2 = false;
   var wasPlayed3 = false;
+  var wasPlayed4 = false;
 
   @override
   Widget build(BuildContext context) {
@@ -25,33 +26,42 @@ class _OkCyborgDialogState extends State<OkCyborgDialog> {
               if (!wasPlayed1)
                 {
                   wasPlayed1 = true,
-        setState(() {
-          dialog.add("TELL ME YOUR DELIVERY ADDRESS");
-        })
+                  setState(() {
+                    dialog.add("TELL ME YOUR DELIVERY ADDRESS");
+                  })
                 }
             });
     Timer(
-        Duration(seconds:3, milliseconds: 500),
-            () => {
-          if (!wasPlayed2)
-            {
-              wasPlayed2 = true,
-              setState(() {
-                dialog.add("14 AV CORBERA SET AS DELIVERY ADDRESS");
-              })
-            }
-        });
+        Duration(seconds: 3, milliseconds: 500),
+        () => {
+              if (!wasPlayed2)
+                {
+                  wasPlayed2 = true,
+                  setState(() {
+                    dialog.add("14 AV CORBERA SET AS DELIVERY ADDRESS");
+                  })
+                }
+            });
     Timer(
-        Duration(seconds:5),
-            () => {
-          if (!wasPlayed3)
-            {
-              wasPlayed3 = true,
-              setState(() {
-                dialog.add("IDENTIFICATION SUCEEDED");
-              })
-            }
-        });
+        Duration(seconds: 5),
+        () => {
+              if (!wasPlayed3)
+                {
+                  wasPlayed3 = true,
+                  setState(() {
+                    dialog.add("IDENTIFICATION SUCEEDED");
+                  })
+                }
+            });
+    Timer(
+        Duration(seconds: 10, milliseconds: 500),
+        () => {
+              if (!wasPlayed4)
+                {
+                  wasPlayed4 = true,
+                  Navigator.of(context).pushNamed("/products", arguments: {"buyCompleted" : true})
+                }
+            });
     return ListView.builder(
       itemCount: dialog.length,
       itemBuilder: _buildItem,
