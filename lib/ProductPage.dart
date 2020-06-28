@@ -146,11 +146,7 @@ class Product extends State<ProductPage> {
       );
     }
 
-//    return item;
-
-//    if (_isAnimated) {
-    return Expanded(
-        child: AnimatedOpacity(
+    return AnimatedOpacity(
         // If the widget is visible, animate to 0.0 (invisible).
         // If the widget is hidden, animate to 1.0 (fully visible).
           opacity: _isAnimated ? 1.0 : 0.0,
@@ -158,9 +154,7 @@ class Product extends State<ProductPage> {
           // The green box must be a child of the AnimatedOpacity widge
 
           child: ChelouBackgroundViolet()
-      ),
       );
-//    }
   }
   animationAlphaContent() {
     if (_isAddedBeforeAnim) {
@@ -185,7 +179,7 @@ class Product extends State<ProductPage> {
   }
 
   contentAnimated() {
-    return Expanded( child:
+    return Container( child:
     Column(
       children: [Expanded(
         child: bigList,
