@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:cyberpizza/ProductPage.dart';
 import 'package:cyberpizza/colors.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -101,14 +102,32 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                     Container(
-                        child: Image.asset(
-                          "assets/Logo.gif",
-                    ),
+                      child: Image.asset(
+                        "assets/Logo.gif",
+                      ),
                     ),
                   ],
                 ),
               ),
             ),
+            Container(
+              margin: const EdgeInsets.only(bottom: 36.0),
+              alignment: Alignment.bottomCenter,
+              child:
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Text(
+                  "Best bionic parts in town",
+                  style: TextStyle(
+                      fontSize: 16, color: white.withOpacity(0.8)),
+                ),
+              ),
+
+//              Text(
+//                "Yolo mzboab goiubouerb guboiuberg gbgzeuboegbg giubergb",
+//                style: TextStyle(fontSize: 14),
+//              ),
+            )
           ],
         ),
       ),

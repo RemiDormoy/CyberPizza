@@ -20,15 +20,27 @@ class Product extends State<ProductPage> {
   var productFocused = 1;
   BigList bigList;
   var _isAnimated = false;
+  var _isAddedBeforeAnim = false;
 
   @override
   Widget build(BuildContext context) {
+      var duration = 320;
+      if (_isAddedBeforeAnim == false) {
+        duration = 320;
+      } else {
+        duration = 74;
+      }
     Timer(
-        Duration(seconds: 0, milliseconds: 512),
+        Duration(seconds: 0, milliseconds: duration),
             () => {
               setState(() {
                 print("seting state");
-                _isAnimated = true;
+                if (_isAddedBeforeAnim == false) {
+                  _isAddedBeforeAnim = true;
+                } else {
+                  _isAnimated = true;
+                }
+
               })
         });
 
@@ -128,7 +140,7 @@ class Product extends State<ProductPage> {
 
 
   animationAlphaChelou() {
-    if (_isAnimated) {
+    if (_isAddedBeforeAnim) {
     } else {
       return  Container(
       );
@@ -151,14 +163,13 @@ class Product extends State<ProductPage> {
 //    }
   }
   animationAlphaContent() {
-    var item = contentAnimated();
-    if (_isAnimated) {
+//    var item = contentAnimated();
+    if (_isAddedBeforeAnim) {
 
     } else {
-      item = Container(
+      return Container(
 
       );
-      return item;
     }
 
 //    return item;
