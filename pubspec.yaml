@@ -75,6 +75,7 @@ flutter:
     - assets/Neck.png
     - assets/Pistolet.png
     - assets/yellowpointer.svg
+    - assets/croix.svg
 
     - assets/Logo.gif
     - assets/background_splash.svg
