@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="20px" viewBox="0 0 21 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Croix</title>
+    <g id="Screens" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="5.0_Success" transform="translate(-310.000000, -334.000000)" stroke="#03001F" stroke-width="2">
+            <g id="Group-10" transform="translate(21.000000, 310.000000)">
+                <g id="Croix" transform="translate(290.000000, 25.000000)">
+                    <polyline id="Path-18" points="18.7209598 -1.77635684e-15 10.3783872 8.72119877 18.7209598 17.3238317"></polyline>
+                    <polyline id="Path-18" transform="translate(4.171286, 8.661916) scale(-1, 1) translate(-4.171286, -8.661916) " points="8.34257267 -1.77635684e-15 0 8.72119877 8.34257267 17.3238317"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
