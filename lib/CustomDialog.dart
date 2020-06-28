@@ -33,8 +33,8 @@ class CustomDialog extends StatelessWidget {
       children: <Widget>[
 //        card(context),
         Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
+          width: double.infinity,
+          height: MediaQuery.of(context).size.height/4,
           child: CustomPaint(
               painter: DialogNeoPainter(),
               child: Container(
@@ -42,9 +42,81 @@ class CustomDialog extends StatelessWidget {
                   vertical: 15,
                   horizontal: 15,
                 ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [],
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Expanded(
+                        flex: 1,
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            '/Success;',
+                            style: TextStyle(
+                              color: primary,
+                              fontSize: 28,
+                              fontWeight: FontWeight.bold,
+                              shadows: [
+                                Shadow(
+                                  offset: Offset(-2, 0),
+                                  blurRadius: 2,
+                                  color: secondary,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Cybernetic neck - \$234,99',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
+                              Text(
+                                '//////////////////////////////////////',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
+                              Text(
+                                'Your order will be materialize soon.',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
+                              Text(
+                                'Thank you for shopping with us.',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               )),
         ),
@@ -52,22 +124,26 @@ class CustomDialog extends StatelessWidget {
       ],
     );
   }
-
-
 }
-
-
 
 class DialogNeoPainter extends CustomPainter {
   DialogNeoPainter();
 
   @override
   void paint(Canvas canvas, Size size) {
-    var notchSize = size.height / 28;
-    final borderPaint = Paint()
-      ..strokeWidth = 1.5
+    double offset = 3;
+    var notchSize = size.height / 8;
+    final backgroundPaint = Paint()
       ..color = white
       ..style = PaintingStyle.fill;
+    final borderPrimaryPaint = Paint()
+      ..strokeWidth = 2
+      ..color = primary
+      ..style = PaintingStyle.stroke;
+    final borderSecondaryPaint = Paint()
+      ..strokeWidth = 2
+      ..color = secondary
+      ..style = PaintingStyle.stroke;
     var path = Path();
     path..moveTo(0, 0);
     path..lineTo(size.width, 0);
@@ -75,7 +151,18 @@ class DialogNeoPainter extends CustomPainter {
     path..lineTo(size.width - notchSize, size.height);
     path..lineTo(0, size.height);
     path..lineTo(0, 0);
-    canvas.drawPath(path, borderPaint);
+    var pathWithOffset = Path();
+    pathWithOffset..moveTo(offset, offset);
+    pathWithOffset..lineTo(size.width + offset, offset);
+    pathWithOffset
+      ..lineTo(size.width + offset, size.height - notchSize + offset);
+    pathWithOffset
+      ..lineTo(size.width - notchSize + offset, size.height + offset);
+    pathWithOffset..lineTo(offset, size.height + offset);
+    pathWithOffset..lineTo(offset, offset);
+    canvas.drawPath(path, backgroundPaint);
+    canvas.drawPath(pathWithOffset, borderPrimaryPaint);
+    canvas.drawPath(path, borderSecondaryPaint);
   }
 
   @override
