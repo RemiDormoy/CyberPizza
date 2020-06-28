@@ -100,11 +100,14 @@ class CyberActionButton extends StatelessWidget {
   String text;
   Color color;
   Color textColor;
+  double textSize;
+
 
   CyberActionButton({
     this.text,
     this.color = materialPrimary,
     this.textColor = white,
+    this.textSize = 22,
   }) : super();
 
   @override
@@ -117,13 +120,13 @@ class CyberActionButton extends StatelessWidget {
           padding: const EdgeInsets.only(left: 1.5),
           child: Container(
             child: CustomPaint(
-                painter: CyberAction(),
+                painter: CyberAction(color: color, notchSize: textSize - 2),
                 child: Container(
-                  padding: EdgeInsets.all(15),
+                  padding: EdgeInsets.all(textSize / 2 + 4),
                   child: Text(text,
                       style: TextStyle(
                         color: textColor,
-                        fontSize: 22,
+                        fontSize: textSize,
                         shadows: [
                           Shadow(
                             offset: Offset.zero,
@@ -177,7 +180,10 @@ class NeonPainter extends CustomPainter {
   bool shouldRepaint(CustomPainter oldDelegate) => true;
 }
 class CyberAction extends CustomPainter {
-  CyberAction();
+  Color color;
+  double notchSize;
+
+  CyberAction({this.color, this.notchSize = 20});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -197,13 +203,13 @@ class CyberAction extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..maskFilter = MaskFilter.blur(BlurStyle.normal, 2);
     final borderPaint = Paint()
-      ..color = materialPrimary
+      ..color = color
       ..style = PaintingStyle.fill;
     var path = Path();
     path..moveTo(0, 0);
     path..lineTo(size.width, 0);
-    path..lineTo(size.width, size.height - 20);
-    path..lineTo(size.width - 20, size.height);
+    path..lineTo(size.width, size.height - notchSize);
+    path..lineTo(size.width - notchSize, size.height);
     path..lineTo(0, size.height);
     path..lineTo(0, 0);
     canvas.drawPath(path, whitePaint);

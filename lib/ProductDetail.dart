@@ -17,11 +17,15 @@ class _ProductDetailState extends State<ProductDetail>
   @override
   void initState() {
     super.initState();
+    zoomingController =
+        AnimationController(duration: Duration(milliseconds: 500), vsync: this)
+          ..addListener(() => setState(() {}));
     floatingController =
-        new AnimationController(duration: Duration(seconds: 100), vsync: this)
+        AnimationController(duration: Duration(seconds: 100), vsync: this)
           ..addListener(() => setState(() {}));
     floatingAnimation =
         Tween(begin: 0.0, end: 62.8).animate(floatingController);
+    zoomingAnimation = Tween(begin: 0.0, end: 1.0).animate(zoomingController);
     floatingController.forward();
     floatingController
       ..addListener(() {
@@ -182,7 +186,7 @@ class _ProductDetailState extends State<ProductDetail>
               Expanded(
                   child: Padding(
                 padding: const EdgeInsets.fromLTRB(40, 20, 40, 0),
-                child: buildFlottingImage(),
+                child: buildZoomingImage(),
               )),
               Center(
                 child: Container(
@@ -217,8 +221,20 @@ class _ProductDetailState extends State<ProductDetail>
   }
 
   AnimationController floatingController;
-
   Animation<double> floatingAnimation;
+  AnimationController zoomingController;
+  Animation<double> zoomingAnimation;
+
+  Transform buildZoomingImage() {
+    var scale = 1 + zoomingAnimation.value * 0.5;
+    return Transform.scale(
+      scale: scale,
+      child: Transform.translate(
+        offset: Offset(-zoomingAnimation.value * MediaQuery.of(context).size.width / 4, 0.0),
+        child: buildFlottingImage(),
+      ),
+    );
+  }
 
   Transform buildFlottingImage() {
     return Transform.translate(
@@ -254,20 +270,71 @@ class _ProductDetailState extends State<ProductDetail>
             top: MediaQuery.of(context).size.height * 13 / 100,
             width: 25,
             height: 25,
-            child: SvgPicture.asset(
-              "assets/yellowpointer.svg",
-              semanticsLabel: 'Acme Logo',
-              fit: BoxFit.contain,
+            child: GestureDetector(
+              onTap: () {
+                print("le controller commence !");
+                zoomingController.forward();
+              },
+              child: SvgPicture.asset(
+                "assets/yellowpointer.svg",
+                semanticsLabel: 'Acme Logo',
+                fit: BoxFit.contain,
+              ),
             ),
           ),
+          buildExplanations(),
         ],
       ),
     );
   }
 
+  Align buildExplanations() {
+    return Align(
+          alignment: Alignment.centerRight,
+          child: Transform.translate(
+            offset: Offset(MediaQuery.of(context).size.width / 4, 0),
+            child: Container(
+              width: (MediaQuery.of(context).size.width / 2 - 20),
+              child: Padding(
+                padding: const EdgeInsets.all(40),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("ENHANCED KEVLAR PIECE", style: TextStyle(fontSize: 10),),
+                    Text("A22-C5637", style: TextStyle(fontSize: 8),),
+                    Text(
+                      '/ / / / / / / / / / / / / / / / / / / / / ',
+                      style: TextStyle(
+                          fontSize: 5,
+                          fontFamily: GoogleFonts.roboto().fontFamily),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top : 4.0),
+                      child: Text("Yolo mzboab goiubouerb guboiuberg gbgzeuboegbg giubergb ugbbiu iubuibg oeu ueiubb", style: TextStyle(fontSize: 8),),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10),
+                      child: CyberActionButton(
+                        color: white,
+                        textColor: deepBlueDark,
+                        textSize: 8,
+                        text: "See less",
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
+  }
+
+  var pointerSelected = false;
+
   @override
   void dispose() {
     floatingController.dispose();
+    zoomingController.dispose();
     super.dispose();
   }
 }
