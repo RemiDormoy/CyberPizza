@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cyberpizza/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -17,9 +19,20 @@ class ProductPage extends StatefulWidget {
 class Product extends State<ProductPage> {
   var productFocused = 1;
   BigList bigList;
+  var _isAnimated = false;
 
   @override
   Widget build(BuildContext context) {
+    Timer(
+        Duration(seconds: 0, milliseconds: 512),
+            () => {
+              setState(() {
+                print("seting state");
+                _isAnimated = true;
+              })
+        });
+
+
     bigList = BigList(
       onPageChanged: _onProductFocusChanged,
       initialChild: productFocused,
@@ -44,7 +57,7 @@ class Product extends State<ProductPage> {
                   fit: BoxFit.fill,
                 ),
               ),
-              ChelouBackgroundViolet(),
+              animationAlphaChelou(),
               Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -105,52 +118,112 @@ class Product extends State<ProductPage> {
                     ),
                   ),
                   // here
-                  Expanded(
-                    child: bigList,
-                  ),
-                  Text(
-                    titles[productFocused],
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 8.0),
-                    child: Text(
-                      prices[productFocused],
-                      style: TextStyle(
-                          fontSize: 16, color: white.withOpacity(0.8)),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 15.0, bottom: 60),
-                    child: GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).pushNamed("/detail");
-                  },
-                  child: CyberButton(
-                    text: "See product",
-                    color: materialPrimary,
-                  ),
-                    ),
-                  ),
-                  Container(
-                      width: MediaQuery
-                          .of(context)
-                          .size
-                          .width,
-                      decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [gradientTop, gradientBottom],
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                          )),
-                      child: SizedBox(
-                          height: 100, width: 300.0, child: _bottomList())), //
-                  //here end
+    animationAlphaContent()
                 ],
               ),
             ],
           ),
         ));
+  }
+
+
+  animationAlphaChelou() {
+    if (_isAnimated) {
+    } else {
+      return  Container(
+      );
+    }
+
+//    return item;
+
+//    if (_isAnimated) {
+    return Expanded(
+        child: AnimatedOpacity(
+        // If the widget is visible, animate to 0.0 (invisible).
+        // If the widget is hidden, animate to 1.0 (fully visible).
+          opacity: _isAnimated ? 1.0 : 0.0,
+          duration: Duration(milliseconds: 500),
+          // The green box must be a child of the AnimatedOpacity widge
+
+          child: ChelouBackgroundViolet()
+      ),
+      );
+//    }
+  }
+  animationAlphaContent() {
+    var item = contentAnimated();
+    if (_isAnimated) {
+
+    } else {
+      item = Container(
+
+      );
+      return item;
+    }
+
+//    return item;
+
+//    if (_isAnimated) {
+    return Expanded(
+        child: AnimatedOpacity(
+        // If the widget is visible, animate to 0.0 (invisible).
+        // If the widget is hidden, animate to 1.0 (fully visible).
+          opacity: _isAnimated ? 1.0 : 0.0,
+          duration: Duration(milliseconds: 500),
+          // The green box must be a child of the AnimatedOpacity widge
+
+          child: contentAnimated()
+      ),
+      );
+//    }
+  }
+
+  contentAnimated() {
+    return Expanded( child:
+    Column(
+      children: [Expanded(
+        child: bigList,
+      ),
+        Text(
+          titles[productFocused],
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 8.0),
+          child: Text(
+            prices[productFocused],
+            style: TextStyle(
+                fontSize: 16, color: white.withOpacity(0.8)),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 15.0, bottom: 60),
+          child: GestureDetector(
+            onTap: () {
+              Navigator.of(context).pushNamed("/detail");
+            },
+            child: CyberButton(
+              text: "See product",
+              color: materialPrimary,
+            ),
+          ),
+        ),
+        Container(
+            width: MediaQuery
+                .of(context)
+                .size
+                .width,
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [gradientTop, gradientBottom],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                )),
+            child: SizedBox(
+                height: 100, width: 300.0, child: _bottomList())), //
+      ],
+    ),
+    ); //here end
   }
 
   ssshowDialog(BuildContext context) {
