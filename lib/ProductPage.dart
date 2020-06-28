@@ -24,11 +24,11 @@ class Product extends State<ProductPage> {
 
   @override
   Widget build(BuildContext context) {
-      var duration = 320;
+      var duration = 380;
       if (_isAddedBeforeAnim == false) {
-        duration = 320;
+        duration = 380;
       } else {
-        duration = 74;
+        duration = 94;
       }
     Timer(
         Duration(seconds: 0, milliseconds: duration),
@@ -163,18 +163,13 @@ class Product extends State<ProductPage> {
 //    }
   }
   animationAlphaContent() {
-//    var item = contentAnimated();
     if (_isAddedBeforeAnim) {
-
     } else {
       return Container(
 
       );
     }
 
-//    return item;
-
-//    if (_isAnimated) {
     return Expanded(
         child: AnimatedOpacity(
         // If the widget is visible, animate to 0.0 (invisible).
