@@ -114,29 +114,34 @@ class _ProductDetailState extends State<ProductDetail>
               ),
               Align(
                 alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                    top: 20,
-                    left: 20,
-                  ),
-                  child: Text(
-                    '/Cybernetic neck;',
-                    style: TextStyle(
-                      color: white,
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
-                      shadows: [
-                        Shadow(
-                          offset: Offset.zero,
-                          blurRadius: 16.0,
-                          color: materialPrimary,
-                        ),
-                        Shadow(
-                          offset: Offset.zero,
-                          blurRadius: 16.0,
-                          color: materialPrimary,
-                        ),
-                      ],
+                child: GestureDetector(
+                  onTap: () {
+                    zoomingController.reverse();
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      top: 20,
+                      left: 20,
+                    ),
+                    child: Text(
+                      '/Cybernetic neck;',
+                      style: TextStyle(
+                        color: white,
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        shadows: [
+                          Shadow(
+                            offset: Offset.zero,
+                            blurRadius: 16.0,
+                            color: materialPrimary,
+                          ),
+                          Shadow(
+                            offset: Offset.zero,
+                            blurRadius: 16.0,
+                            color: materialPrimary,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
