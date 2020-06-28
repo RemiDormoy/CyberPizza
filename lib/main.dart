@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'OkCyborgPage.dart';
 import 'ProductDetail.dart';
 
 void main() => runApp(MyApp());
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/products": (context) => ProductPage(),
         "/detail": (context) => ProductDetail(),
+        "/okcyborg": (context) => OkCyborgPage(),
       },
     );
   }

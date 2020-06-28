@@ -12,25 +12,25 @@ class ProductDetail extends StatefulWidget {
   _ProductDetailState createState() => _ProductDetailState();
 }
 
-class _ProductDetailState extends State<ProductDetail> with TickerProviderStateMixin {
-
-
+class _ProductDetailState extends State<ProductDetail>
+    with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    floatingController = new AnimationController(
-        duration: Duration(seconds: 100),
-        vsync: this)..addListener(() =>
-        setState(() {}));
-    floatingAnimation = Tween(begin: 0.0, end: 62.8).animate(floatingController);
+    floatingController =
+        new AnimationController(duration: Duration(seconds: 100), vsync: this)
+          ..addListener(() => setState(() {}));
+    floatingAnimation =
+        Tween(begin: 0.0, end: 62.8).animate(floatingController);
     floatingController.forward();
-    floatingController..addListener(() {
-      if (floatingController.status == AnimationStatus.completed) {
-        floatingController.reverse();
-      } else if (floatingController.status == AnimationStatus.dismissed) {
-        floatingController.forward();
-      }
-    });
+    floatingController
+      ..addListener(() {
+        if (floatingController.status == AnimationStatus.completed) {
+          floatingController.reverse();
+        } else if (floatingController.status == AnimationStatus.dismissed) {
+          floatingController.forward();
+        }
+      });
   }
 
   @override
@@ -80,7 +80,7 @@ class _ProductDetailState extends State<ProductDetail> with TickerProviderStateM
                 Navigator.of(context).pop();
               },
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(30, 40, 0, 0),
+                padding: const EdgeInsets.fromLTRB(30, 40, 60, 60),
                 child: SvgPicture.asset(
                   "assets/cyberback.svg",
                   semanticsLabel: 'Acme Logo',
@@ -172,7 +172,7 @@ class _ProductDetailState extends State<ProductDetail> with TickerProviderStateM
                 child: Padding(
                   padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
                   child: Text(
-                    'Protect your neck with up to date tech, develop by our best experts and enjoy lifting up to 500kg with your head !',
+                    'Protect your neck with up to date tech, developed by our best experts and enjoy lifting up to 500kg with your head !',
                     style: TextStyle(
                       fontSize: 14,
                     ),
@@ -202,8 +202,13 @@ class _ProductDetailState extends State<ProductDetail> with TickerProviderStateM
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 30, top: 40),
-                child: CyberActionButton(
-                  text: "Buy with CYBER ID",
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pushNamed("/okcyborg");
+                  },
+                  child: CyberActionButton(
+                    text: "Buy with OK CYBORG",
+                  ),
                 ),
               )
             ],
@@ -217,9 +222,16 @@ class _ProductDetailState extends State<ProductDetail> with TickerProviderStateM
 
   Transform buildFlottingImage() {
     return Transform.translate(
-      offset: Offset(5 * cos(floatingAnimation.value), 15 * sin(floatingAnimation.value)),
+      offset: Offset(
+          5 * cos(floatingAnimation.value), 15 * sin(floatingAnimation.value)),
       child: Image.asset("assets/neck.png"),
     );
+  }
+
+  @override
+  void dispose() {
+    floatingController.dispose();
+    super.dispose();
   }
 }
 
