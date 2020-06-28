@@ -36,22 +36,12 @@ class Product extends State<ProductPage> {
       _isAddedBeforeAnim = true;
       _hasShownDialog = true;
 
-//      ssshowDialog(context);
-//      Timer(
-//          Duration(seconds: 0, milliseconds: 0),
-//              () => {
-//            setState(() {
-//              print("seting state");
-//                _isAddedBeforeAnim = true;
-//                _isAnimated = true;
 //
-//              Timer(
-//                  Duration(seconds: 0, milliseconds: 430),
-//                      () => {
-//                    ssshowDialog(context),
-//                  });
-//            }),
-//          });
+      Timer(
+          Duration(seconds: 0, milliseconds: 0),
+              () => {
+                    ssshowDialog(context),
+          });
 
 //      print("rcvd fdata ${rcvdData['buyCompleted']}");
 //      ssshowDialog(context);

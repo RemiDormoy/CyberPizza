@@ -57,7 +57,7 @@ class _OkCyborgDialogState extends State<OkCyborgDialog> {
             }
         });
     Timer(
-        Duration(seconds: 10, milliseconds: 500),
+        Duration(seconds: 1, milliseconds: 500),
             () =>
         {
           if (!wasPlayed4)
