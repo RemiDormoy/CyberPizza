@@ -141,44 +141,53 @@ class _ProductDetailState extends State<ProductDetail>
                   ),
                 ),
               ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                    top: 20,
-                    left: 20,
-                  ),
-                  child: Text(
-                    '<New - €234,99',
-                    style: TextStyle(
-                      fontSize: 18,
+              Opacity(
+                opacity: 1 - zoomingAnimation.value,
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      top: 20,
+                      left: 20,
+                    ),
+                    child: Text(
+                      '<New - €234,99',
+                      style: TextStyle(
+                        fontSize: 18,
+                      ),
                     ),
                   ),
                 ),
               ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                    top: 10,
-                    left: 20,
-                  ),
-                  child: Text(
-                    '//////////////////////////////////////////////////////////////////////////////',
-                    style: TextStyle(
-                        fontSize: 10,
-                        fontFamily: GoogleFonts.roboto().fontFamily),
+              Opacity(
+                opacity: 1 - zoomingAnimation.value,
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      top: 10,
+                      left: 20,
+                    ),
+                    child: Text(
+                      '//////////////////////////////////////////////////////////////////////////////',
+                      style: TextStyle(
+                          fontSize: 10,
+                          fontFamily: GoogleFonts.roboto().fontFamily),
+                    ),
                   ),
                 ),
               ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
-                  child: Text(
-                    'Protect your neck with up to date tech, developed by our best experts and enjoy lifting up to 500kg with your head !',
-                    style: TextStyle(
-                      fontSize: 14,
+              Opacity(
+                opacity: 1 - zoomingAnimation.value,
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+                    child: Text(
+                      'Protect your neck with up to date tech, developed by our best experts and enjoy lifting up to 500kg with your head !',
+                      style: TextStyle(
+                        fontSize: 14,
+                      ),
                     ),
                   ),
                 ),
@@ -288,45 +297,53 @@ class _ProductDetailState extends State<ProductDetail>
     );
   }
 
-  Align buildExplanations() {
-    return Align(
-          alignment: Alignment.centerRight,
-          child: Transform.translate(
-            offset: Offset(MediaQuery.of(context).size.width / 4, 0),
-            child: Container(
-              width: (MediaQuery.of(context).size.width / 2 - 20),
-              child: Padding(
-                padding: const EdgeInsets.all(40),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text("ENHANCED KEVLAR PIECE", style: TextStyle(fontSize: 10),),
-                    Text("A22-C5637", style: TextStyle(fontSize: 8),),
-                    Text(
-                      '/ / / / / / / / / / / / / / / / / / / / / ',
-                      style: TextStyle(
-                          fontSize: 5,
-                          fontFamily: GoogleFonts.roboto().fontFamily),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top : 4.0),
-                      child: Text("Yolo mzboab goiubouerb guboiuberg gbgzeuboegbg giubergb ugbbiu iubuibg oeu ueiubb", style: TextStyle(fontSize: 8),),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: CyberActionButton(
-                        color: white,
-                        textColor: deepBlueDark,
-                        textSize: 8,
-                        text: "See less",
+  Widget buildExplanations() {
+    return Opacity(
+      opacity: zoomingAnimation.value,
+      child: Align(
+            alignment: Alignment.centerRight,
+            child: Transform.translate(
+              offset: Offset(MediaQuery.of(context).size.width / 4, 0),
+              child: Container(
+                width: (MediaQuery.of(context).size.width / 2 - 20),
+                child: Padding(
+                  padding: const EdgeInsets.all(40),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("ENHANCED KEVLAR PIECE", style: TextStyle(fontSize: 10),),
+                      Text("A22-C5637", style: TextStyle(fontSize: 8),),
+                      Text(
+                        '/ / / / / / / / / / / / / / / / / / / / / ',
+                        style: TextStyle(
+                            fontSize: 5,
+                            fontFamily: GoogleFonts.roboto().fontFamily),
                       ),
-                    )
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.only(top : 4.0),
+                        child: Text("Yolo mzboab goiubouerb guboiuberg gbgzeuboegbg giubergb ugbbiu iubuibg oeu ueiubb", style: TextStyle(fontSize: 8),),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: GestureDetector(
+                          onTap: () {
+                            zoomingController.reverse();
+                          },
+                          child: CyberActionButton(
+                            color: white,
+                            textColor: deepBlueDark,
+                            textSize: 8,
+                            text: "See less",
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
           ),
-        );
+    );
   }
 
   var pointerSelected = false;
