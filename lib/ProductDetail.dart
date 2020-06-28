@@ -224,7 +224,44 @@ class _ProductDetailState extends State<ProductDetail>
     return Transform.translate(
       offset: Offset(
           5 * cos(floatingAnimation.value), 15 * sin(floatingAnimation.value)),
-      child: Image.asset("assets/neck.png"),
+      child: Stack(
+        children: [
+          Center(child: Image.asset("assets/neck.png")),
+          Positioned(
+            left: MediaQuery.of(context).size.width * 12 / 100,
+            top: MediaQuery.of(context).size.height * 11 / 100,
+            width: 25,
+            height: 25,
+            child: SvgPicture.asset(
+              "assets/yellowpointer.svg",
+              semanticsLabel: 'Acme Logo',
+              fit: BoxFit.contain,
+            ),
+          ),
+          Positioned(
+            left: MediaQuery.of(context).size.width * 26 / 100,
+            top: MediaQuery.of(context).size.height * 27 / 100,
+            width: 25,
+            height: 25,
+            child: SvgPicture.asset(
+              "assets/yellowpointer.svg",
+              semanticsLabel: 'Acme Logo',
+              fit: BoxFit.contain,
+            ),
+          ),
+          Positioned(
+            left: MediaQuery.of(context).size.width * 52 / 100,
+            top: MediaQuery.of(context).size.height * 13 / 100,
+            width: 25,
+            height: 25,
+            child: SvgPicture.asset(
+              "assets/yellowpointer.svg",
+              semanticsLabel: 'Acme Logo',
+              fit: BoxFit.contain,
+            ),
+          ),
+        ],
+      ),
     );
   }
 
