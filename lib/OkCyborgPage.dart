@@ -1,3 +1,4 @@
+import 'package:cyberpizza/OkCyborgDialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -12,14 +13,8 @@ class OkCyborgPage extends StatelessWidget {
         child: Stack(
           children: [
             Container(
-              width: MediaQuery
-                  .of(context)
-                  .size
-                  .width,
-              height: MediaQuery
-                  .of(context)
-                  .size
-                  .height,
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
               child: SvgPicture.asset(
                 "assets/grid.svg",
                 semanticsLabel: 'Acme Logo',
@@ -41,6 +36,23 @@ class OkCyborgPage extends StatelessWidget {
                 ),
               ),
             ),
+            Align(
+              alignment: Alignment.topCenter,
+              child: Padding(
+                padding: EdgeInsets.only(top: MediaQuery.of(context).size.height / 4),
+                child: Container(
+                  height: MediaQuery.of(context).size.height / 3,
+                  child: Image.asset("assets/okcyborg.gif"),
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 25),
+                child: OkCyborgDialog(),
+              ),
+            )
           ],
         ),
       ),
