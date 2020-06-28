@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import 'BigList.dart';
 import 'ChelouBackgroundViolet.dart';
+import 'CustomDialog.dart';
 import 'colors.dart';
 
 class ProductPage extends StatefulWidget {
@@ -25,90 +26,103 @@ class Product extends State<ProductPage> {
     );
     return Scaffold(
         body: Container(
-      decoration: BoxDecoration(color: deepBlueDark),
-      child: Stack(
-        children: [
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            child: SvgPicture.asset(
-              "assets/grid.svg",
-              semanticsLabel: 'Acme Logo',
-              fit: BoxFit.fill,
-            ),
-          ),
-          ChelouBackgroundViolet(),
-          Column(
-            mainAxisSize: MainAxisSize.max,
+          decoration: BoxDecoration(color: deepBlueDark),
+          child: Stack(
             children: [
-              Center(
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(40.0, 50, 40, 20),
-                  child: Hero(
-                    tag: "titleAnimation",
-                    child: Opacity(
-                      opacity: 0.5,
-                      child: Image.asset(
-                        'assets/applogo.png',
-                        width: 200,
-                        height: 50,
+              Container(
+                width: MediaQuery
+                    .of(context)
+                    .size
+                    .width,
+                height: MediaQuery
+                    .of(context)
+                    .size
+                    .height,
+                child: SvgPicture.asset(
+                  "assets/grid.svg",
+                  semanticsLabel: 'Acme Logo',
+                  fit: BoxFit.fill,
+                ),
+              ),
+              ChelouBackgroundViolet(),
+              Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(40.0, 50, 40, 20),
+                      child: Hero(
+                        tag: "titleAnimation",
+                        child: Opacity(
+                          opacity: 0.5,
+                          child: Image.asset(
+                            'assets/applogo.png',
+                            width: 200,
+                            height: 50,
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ),
-              Align(
-                alignment: Alignment.topLeft,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 15.0),
-                  child: Text(
-                    'Welcome back',
-                    style: TextStyle(
-                      color: white,
-                      fontSize: 32,
-                      shadows: [
-                        Shadow(
-                          offset: Offset.zero,
-                          blurRadius: 16.0,
-                          color: materialPrimary,
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 15.0),
+                      child: Text(
+                        'Welcome back',
+                        style: TextStyle(
+                          color: white,
+                          fontSize: 32,
+                          shadows: [
+                            Shadow(
+                              offset: Offset.zero,
+                              blurRadius: 16.0,
+                              color: materialPrimary,
+                            ),
+                            Shadow(
+                              offset: Offset.zero,
+                              blurRadius: 16.0,
+                              color: materialPrimary,
+                            ),
+                          ],
                         ),
-                        Shadow(
-                          offset: Offset.zero,
-                          blurRadius: 16.0,
-                          color: materialPrimary,
-                        ),
-                      ],
+                      ),
                     ),
                   ),
-                ),
-              ),
-              Align(
-                alignment: Alignment.topLeft,
-                child: Padding(
-                  padding: const EdgeInsets.all(15),
-                  child: CyberButton(
-                    text: "Bionic arms",
-                    withArrow: true,
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.all(15),
+                      child: GestureDetector(
+                        onTap: () {
+                          ssshowDialog(context);
+                        },
+                        child: CyberButton(
+                          text: "Bionic arms",
+                          withArrow: true,
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              Expanded(
-                child: bigList,
-              ),
-              Text(
-                titles[productFocused],
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 8.0),
-                child: Text(
-                  prices[productFocused],
-                  style: TextStyle(fontSize: 16, color: white.withOpacity(0.8)),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 15.0, bottom: 60),
-                child: GestureDetector(
+                  // here
+                  Expanded(
+                    child: bigList,
+                  ),
+                  Text(
+                    titles[productFocused],
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: Text(
+                      prices[productFocused],
+                      style: TextStyle(
+                          fontSize: 16, color: white.withOpacity(0.8)),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15.0, bottom: 60),
+                    child: GestureDetector(
                   onTap: () {
                     Navigator.of(context).pushNamed("/detail");
                   },
@@ -116,23 +130,38 @@ class Product extends State<ProductPage> {
                     text: "See product",
                     color: materialPrimary,
                   ),
-                ),
+                    ),
+                  ),
+                  Container(
+                      width: MediaQuery
+                          .of(context)
+                          .size
+                          .width,
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [gradientTop, gradientBottom],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                          )),
+                      child: SizedBox(
+                          height: 100, width: 300.0, child: _bottomList())), //
+                  //here end
+                ],
               ),
-              Container(
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                    colors: [gradientTop, gradientBottom],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                  )),
-                  child: SizedBox(
-                      height: 100, width: 300.0, child: _bottomList())), //
             ],
           ),
-        ],
-      ),
-    ));
+        ));
+  }
+
+  ssshowDialog(BuildContext context) {
+    showDialog(
+    context: context,
+    builder: (BuildContext context) => CustomDialog(
+      title: "Success",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      buttonText: "Okay",
+    ),
+    );
   }
 
   var images = ['assets/eyeblue.png',
@@ -232,3 +261,4 @@ class Product extends State<ProductPage> {
     });
   }
 }
+

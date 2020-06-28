@@ -9,8 +9,8 @@ class ChelouBackgroundViolet extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
       child: CustomPaint(
-        painter: ChelouBackgroundPainter(),
-      ),
+      painter: ChelouBackgroundPainter(),
+    ),
     );
   }
 }
