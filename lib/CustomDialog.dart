@@ -97,9 +97,9 @@ class _CustomDialogState extends State<CustomDialog> with TickerProviderStateMix
                               onTap: () {
                                 Navigator.of(context).pop();
                               },
-                              child: SvgPicture.asset(
-                                "assets/croix.svg",
-                                semanticsLabel: 'Acme Logo',
+                              child: Image.asset(
+                                "assets/croix.png",
+//                                semanticsLabel: 'Acme Logo',
                                 color: Colors.black,
                                 width: 20,
                                 height: 20,

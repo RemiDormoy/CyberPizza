@@ -56,6 +56,14 @@ flutter:
     - assets/helmet.svg
     - assets/neck.svg
     - assets/bottombutton_pink.svg
+    - assets/bottombutton_pink.png
+    - assets/flamme.png
+    - assets/backgroundsplash.png
+    - assets/croix.png
+    - assets/cyberback.png
+    - assets/yellowpointer.png
+    - assets/grid.png
+    - assets/underlinebutton.png
     - assets/pistolet.png
     - assets/armright.png
     - assets/eyeblue.png

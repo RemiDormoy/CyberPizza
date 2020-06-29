@@ -5,7 +5,8 @@ import 'package:cyberpizza/ProductPage.dart';
 import 'package:cyberpizza/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+// todo web svg
+//import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'OkCyborgPage.dart';
@@ -93,21 +94,22 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
-              child: SvgPicture.asset(
-                "assets/backgroundsplash.svg",
-                semanticsLabel: 'Acme Logo',
+              child: Image.asset(
+                "assets/backgroundsplash.png",
+//                semanticsLabel: 'Acme Logo',
                 fit: BoxFit.fill,
               ),
             ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              child: SvgPicture.asset(
-                "assets/background_splash.svg",
-                semanticsLabel: 'Acme Logo',
-                fit: BoxFit.fill,
-              ),
-            ),
+            // todo: missing this one as png
+//            Container(
+//              width: MediaQuery.of(context).size.width,
+//              height: MediaQuery.of(context).size.height,
+//              child: SvgPicture.asset(
+//                "assets/background_splash.svg",
+//                semanticsLabel: 'Acme Logo',
+//                fit: BoxFit.fill,
+//              ),
+//            ),
             Center(
               child: Container(
                 width: 200,

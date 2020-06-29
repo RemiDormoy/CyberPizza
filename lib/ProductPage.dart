@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:cyberpizza/buttons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+//import 'package:flutter_svg/flutter_svg.dart';
 
 import 'BigList.dart';
 import 'ChelouBackgroundViolet.dart';
@@ -79,9 +79,9 @@ class Product extends State<ProductPage> {
           Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            child: SvgPicture.asset(
-              "assets/grid.svg",
-              semanticsLabel: 'Acme Logo',
+            child: Image.asset(
+              "assets/grid.png",
+//              semanticsLabel: 'Acme Logo',
               fit: BoxFit.fill,
             ),
           ),
@@ -302,9 +302,9 @@ class Product extends State<ProductPage> {
         child: Padding(
           padding: const EdgeInsets.only(top: 0.75),
           child: Container(
-            child: SvgPicture.asset(
-              "assets/bottombutton_pink.svg",
-              semanticsLabel: 'Acme Logo',
+            child: Image.asset(
+              "assets/bottombutton_pink.png",
+//              semanticsLabel: 'Acme Logo',
             ),
             decoration: BoxDecoration(
               color: Colors.transparent,

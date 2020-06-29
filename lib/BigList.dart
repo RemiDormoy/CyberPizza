@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:cyberpizza/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+//import 'package:flutter_svg/svg.dart';
 
 class BigList extends StatefulWidget {
   Function(int) onPageChanged;
@@ -106,9 +106,9 @@ class _BigListState extends State<BigList> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SvgPicture.asset(
-                    "assets/flamme.svg",
-                    semanticsLabel: 'Acme Logo',
+                  Image.asset(
+                    "assets/flamme.png",
+//                    semanticsLabel: 'Acme Logo',
                     fit: BoxFit.contain,
                     width: 15,
                     height: 15

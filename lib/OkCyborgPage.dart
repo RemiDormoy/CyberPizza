@@ -15,9 +15,9 @@ class OkCyborgPage extends StatelessWidget {
             Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
-              child: SvgPicture.asset(
-                "assets/grid.svg",
-                semanticsLabel: 'Acme Logo',
+              child: Image.asset(
+                "assets/grid.png",
+//                semanticsLabel: 'Acme Logo',
                 fit: BoxFit.fill,
               ),
             ),
@@ -29,9 +29,9 @@ class OkCyborgPage extends StatelessWidget {
                 },
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(30, 40, 60, 60),
-                  child: SvgPicture.asset(
-                    "assets/cyberback.svg",
-                    semanticsLabel: 'Acme Logo',
+                  child: Image.asset(
+                    "assets/cyberback.png",
+//                    semanticsLabel: 'Acme Logo',
                   ),
                 ),
               ),

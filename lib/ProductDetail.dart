@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:cyberpizza/buttons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+//import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'colors.dart';
@@ -63,9 +63,9 @@ class _ProductDetailState extends State<ProductDetail>
           Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            child: SvgPicture.asset(
-              "assets/grid.svg",
-              semanticsLabel: 'Acme Logo',
+            child: Image.asset(
+              "assets/grid.png",
+//              semanticsLabel: 'Acme Logo',
               fit: BoxFit.fill,
             ),
           ),
@@ -85,9 +85,9 @@ class _ProductDetailState extends State<ProductDetail>
               },
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(30, 40, 60, 60),
-                child: SvgPicture.asset(
-                  "assets/cyberback.svg",
-                  semanticsLabel: 'Acme Logo',
+                child: Image.asset(
+                  "assets/cyberback.png",
+//                  semanticsLabel: 'Acme Logo',
                 ),
               ),
             ),
@@ -105,10 +105,10 @@ class _ProductDetailState extends State<ProductDetail>
             children: [
               Align(
                 alignment: Alignment.bottomLeft,
-                child: SvgPicture.asset(
-                  "assets/bottombutton_pink.svg",
+                child: Image.asset(
+                  "assets/bottombutton_pink.png",
                   color: accent,
-                  semanticsLabel: 'Acme Logo',
+//                  semanticsLabel: 'Acme Logo',
                   width: 90,
                 ),
               ),
@@ -264,9 +264,9 @@ class _ProductDetailState extends State<ProductDetail>
             top: (MediaQuery.of(context).size.height - 450) * 33 / 100,
             width: 25,
             height: 25,
-            child: SvgPicture.asset(
-              "assets/yellowpointer.svg",
-              semanticsLabel: 'Acme Logo',
+            child: Image.asset(
+              "assets/yellowpointer.png",
+//              semanticsLabel: 'Acme Logo',
               fit: BoxFit.contain,
             ),
           ),
@@ -275,9 +275,9 @@ class _ProductDetailState extends State<ProductDetail>
             top: (MediaQuery.of(context).size.height - 450) * 70 / 100,
             width: 25,
             height: 25,
-            child: SvgPicture.asset(
-              "assets/yellowpointer.svg",
-              semanticsLabel: 'Acme Logo',
+            child: Image.asset(
+              "assets/yellowpointer.png",
+//              semanticsLabel: 'Acme Logo',
               fit: BoxFit.contain,
             ),
           ),
@@ -290,9 +290,9 @@ class _ProductDetailState extends State<ProductDetail>
               onTap: () {
                 zoomingController.forward();
               },
-              child: SvgPicture.asset(
-                "assets/yellowpointer.svg",
-                semanticsLabel: 'Acme Logo',
+              child: Image.asset(
+                "assets/yellowpointer.png",
+//                semanticsLabel: 'Acme Logo',
                 fit: BoxFit.contain,
               ),
             ),
