@@ -25,6 +25,7 @@ class CyberButton extends StatelessWidget {
         child: Icon(
           Icons.keyboard_arrow_down,
           color: color,
+          size: 20,
         ),
       );
     } else {
@@ -70,7 +71,7 @@ class CyberButton extends StatelessWidget {
                 )),
           ),
         ),
-        Padding(
+        /*Padding(
           padding: const EdgeInsets.only(top: 0.75),
           child: Container(
             child: Image.asset(
@@ -90,7 +91,7 @@ class CyberButton extends StatelessWidget {
               ],
             ),
           ),
-        ),
+        ),*/
       ],
     );
   }

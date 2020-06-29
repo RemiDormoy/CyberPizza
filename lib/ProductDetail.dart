@@ -1,8 +1,8 @@
 import 'dart:math';
 
+import 'package:cyberpizza/WebWrapper.dart';
 import 'package:cyberpizza/buttons.dart';
 import 'package:flutter/material.dart';
-//import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'colors.dart';
@@ -40,59 +40,63 @@ class _ProductDetailState extends State<ProductDetail>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-      decoration: BoxDecoration(color: deepBlueDark),
-      child: Stack(
-        children: [
-          Center(
-            child: Align(
-              alignment: Alignment.topCenter,
-              child: Padding(
-                padding: const EdgeInsets.all(40.0),
-                child: Opacity(
-                  opacity: 0.5,
-                  child: Image.asset(
-                    'assets/applogo.png',
-                    width: 200,
-                    height: 50,
+        body: WebWrapper(
+      child: Container(
+        decoration: BoxDecoration(color: deepBlueDark),
+        child: Stack(
+          children: [
+            Center(
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(40.0, 20, 40, 20),
+                  child: Opacity(
+                    opacity: 0.5,
+                    child: Image.asset(
+                      'assets/applogo.png',
+                      width: 200,
+                      height: 50,
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            child: Image.asset(
-              "assets/grid.png",
-//              semanticsLabel: 'Acme Logo',
-              fit: BoxFit.fill,
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
+            Container(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height - 100,
-              child: buildMainDetailPart(context),
+              height: MediaQuery.of(context).size.height,
+              child: Image.asset(
+                "assets/grid.png",
+//              semanticsLabel: 'Acme Logo',
+                fit: BoxFit.fill,
+              ),
             ),
-          ),
-          Align(
-            alignment: Alignment.topLeft,
-            child: GestureDetector(
-              onTap: () {
-                Navigator.of(context).pop();
-              },
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(30, 40, 60, 60),
-                child: Image.asset(
-                  "assets/cyberback.png",
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height - 100,
+                child: buildMainDetailPart(context),
+              ),
+            ),
+            Align(
+              alignment: Alignment.topLeft,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 20, 60, 60),
+                  child: Image.asset(
+                    "assets/cyberback.png",
+                    width: 24,
+                    height: 24,
 //                  semanticsLabel: 'Acme Logo',
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     ));
   }
@@ -187,7 +191,8 @@ class _ProductDetailState extends State<ProductDetail>
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+                    padding:
+                        const EdgeInsets.only(top: 20, left: 20, right: 20),
                     child: Text(
                       'Protect your neck with up to date tech, developed by our best experts and enjoy lifting up to 500kg with your head !',
                       style: TextStyle(
@@ -246,7 +251,9 @@ class _ProductDetailState extends State<ProductDetail>
     return Transform.scale(
       scale: scale,
       child: Transform.translate(
-        offset: Offset(-zoomingAnimation.value * MediaQuery.of(context).size.width / 4, -zoomingAnimation.value * 20),
+        offset: Offset(
+            -zoomingAnimation.value * ((MediaQuery.of(context).size.height - 40) / 2) / 4,
+            -zoomingAnimation.value * 20),
         child: buildFlottingImage(),
       ),
     );
@@ -259,7 +266,7 @@ class _ProductDetailState extends State<ProductDetail>
       child: Stack(
         children: [
           Center(child: Image.asset("assets/neck.png")),
-          Positioned(
+          /*Positioned(
             left: (MediaQuery.of(context).size.width - 80) * 16 / 100,
             top: (MediaQuery.of(context).size.height - 450) * 33 / 100,
             width: 25,
@@ -280,20 +287,22 @@ class _ProductDetailState extends State<ProductDetail>
 //              semanticsLabel: 'Acme Logo',
               fit: BoxFit.contain,
             ),
-          ),
-          Positioned(
-            left: (MediaQuery.of(context).size.width - 80) * 68 / 100,
-            top: (MediaQuery.of(context).size.height - 450) * 34 / 100,
-            width: 25,
-            height: 25,
-            child: GestureDetector(
-              onTap: () {
-                zoomingController.forward();
-              },
-              child: Image.asset(
-                "assets/yellowpointer.png",
+          ),*/
+          Center(
+            child: Container(
+              //left: (MediaQuery.of(context).size.width - 80) * 68 / 100,
+              //top: (MediaQuery.of(context).size.height - 450) * 34 / 100,
+              width: 25,
+              height: 25,
+              child: GestureDetector(
+                onTap: () {
+                  zoomingController.forward();
+                },
+                child: Image.asset(
+                  "assets/yellowpointer.png",
 //                semanticsLabel: 'Acme Logo',
-                fit: BoxFit.contain,
+                  fit: BoxFit.contain,
+                ),
               ),
             ),
           ),
@@ -307,49 +316,59 @@ class _ProductDetailState extends State<ProductDetail>
     return Opacity(
       opacity: zoomingAnimation.value,
       child: Align(
-            alignment: Alignment.centerRight,
-            child: Transform.translate(
-              offset: Offset(MediaQuery.of(context).size.width / 4, 0),
-              child: GestureDetector(
-                onTap: () {
-                  zoomingController.reverse();
-                },
-                child: Container(
-                  width: (MediaQuery.of(context).size.width / 2 - 20),
-                  child: Padding(
-                    padding: const EdgeInsets.all(40),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("ENHANCED KEVLAR PIECE", style: TextStyle(fontSize: 10),),
-                        Text("A22-C5637", style: TextStyle(fontSize: 8),),
-                        Text(
-                          '/ / / / / / / / / / / / / / / / / / / / / ',
-                          style: TextStyle(
-                              fontSize: 5,
-                              fontFamily: GoogleFonts.roboto().fontFamily),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top : 4.0),
-                          child: Text("Kevlar® has a unique combination of high strength, high modulus, toughness and thermal stability", style: TextStyle(fontSize: 8),),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 10),
-                          child: CyberActionButton(
-                            color: white,
-                            textColor: deepBlueDark,
-                            textSize: 9,
-                            verticalPadding: 5,
-                            text: "See less",
-                          ),
-                        )
-                      ],
+        alignment: Alignment.centerRight,
+        child: Transform.translate(
+          offset: Offset((MediaQuery.of(context).size.height - 40) / 8, 0),
+          child: GestureDetector(
+            onTap: () {
+              zoomingController.reverse();
+            },
+            child: Container(
+              width: ((MediaQuery.of(context).size.height - 80) / 4 - 20),
+              height: MediaQuery.of(context).size.height / 4,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "ENHANCED KEVLAR PIECE",
+                      style: TextStyle(fontSize: 10),
                     ),
-                  ),
+                    Text(
+                      "A22-C5637",
+                      style: TextStyle(fontSize: 8),
+                    ),
+                    Text(
+                      '/ / / / / / / / / / / / / / / / / / / / / ',
+                      style: TextStyle(
+                          fontSize: 4,
+                          fontFamily: GoogleFonts.roboto().fontFamily),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 4.0),
+                      child: Text(
+                        "Kevlar® has a unique combination of high strength, high modulus, toughness and thermal stability",
+                        style: TextStyle(fontSize: 6),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10),
+                      child: CyberActionButton(
+                        color: white,
+                        textColor: deepBlueDark,
+                        textSize: 9,
+                        verticalPadding: 5,
+                        text: "See less",
+                      ),
+                    )
+                  ],
                 ),
               ),
             ),
           ),
+        ),
+      ),
     );
   }
 

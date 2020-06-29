@@ -94,7 +94,7 @@ class _BigListState extends State<BigList> {
       asset = "assets/eyered.png";
     }
     Widget topSale;
-    if (position % 5 == 1) {
+    if (position % 5 == 10) {
       topSale = Transform.translate(
         offset: Offset(-40, 0),
         child: Container(

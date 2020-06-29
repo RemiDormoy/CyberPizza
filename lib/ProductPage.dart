@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cyberpizza/WebWrapper.dart';
 import 'package:cyberpizza/buttons.dart';
 import 'package:flutter/material.dart';
 //import 'package:flutter_svg/flutter_svg.dart';
@@ -72,81 +73,83 @@ class Product extends State<ProductPage> {
       initialChild: productFocused,
     );
     return Scaffold(
-        body: Container(
+        body: WebWrapper(
+          child: Container(
       decoration: BoxDecoration(color: deepBlueDark),
       child: Stack(
-        children: [
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            child: Image.asset(
-              "assets/grid.png",
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              child: Image.asset(
+                "assets/grid.png",
 //              semanticsLabel: 'Acme Logo',
-              fit: BoxFit.fill,
+                fit: BoxFit.fill,
+              ),
             ),
-          ),
-          animationAlphaChelou(),
-          Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Center(
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(40.0, 50, 40, 20),
-                  child: Hero(
-                    tag: "titleAnimation",
-                    child: Opacity(
-                      opacity: 0.5,
-                      child: Image.asset(
-                        'assets/applogo.png',
-                        width: 200,
-                        height: 50,
+            animationAlphaChelou(),
+            Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(40.0, 20, 40, 10),
+                    child: Hero(
+                      tag: "titleAnimation",
+                      child: Opacity(
+                        opacity: 0.5,
+                        child: Image.asset(
+                          'assets/applogo.png',
+                          width: 200,
+                          height: 50,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              Align(
-                alignment: Alignment.topLeft,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 15.0),
-                  child: Text(
-                    'Welcome back',
-                    style: TextStyle(
-                      color: white,
-                      fontSize: 32,
-                      shadows: [
-                        Shadow(
-                          offset: Offset.zero,
-                          blurRadius: 16.0,
-                          color: materialPrimary,
-                        ),
-                        Shadow(
-                          offset: Offset.zero,
-                          blurRadius: 16.0,
-                          color: materialPrimary,
-                        ),
-                      ],
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 15.0),
+                    child: Text(
+                      'Welcome back',
+                      style: TextStyle(
+                        color: white,
+                        fontSize: 32,
+                        shadows: [
+                          Shadow(
+                            offset: Offset.zero,
+                            blurRadius: 16.0,
+                            color: materialPrimary,
+                          ),
+                          Shadow(
+                            offset: Offset.zero,
+                            blurRadius: 16.0,
+                            color: materialPrimary,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Align(
-                alignment: Alignment.topLeft,
-                child: Padding(
-                  padding: const EdgeInsets.all(15),
-                  child: CyberButton(
-                    text: "Trending",
-                    withArrow: true,
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                    child: CyberButton(
+                      text: "Trending",
+                      withArrow: true,
+                    ),
                   ),
                 ),
-              ),
-              // here
-              animationAlphaContent()
-            ],
-          ),
-        ],
+                // here
+                animationAlphaContent()
+              ],
+            ),
+          ],
       ),
-    ));
+    ),
+        ));
   }
 
   animationAlphaChelou() {
@@ -211,7 +214,7 @@ class Product extends State<ProductPage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 15.0, bottom: 60),
+            padding: const EdgeInsets.only(top: 15.0, bottom: 20),
             child: GestureDetector(
               onTap: () {
                 Navigator.of(context).pushNamed("/detail");

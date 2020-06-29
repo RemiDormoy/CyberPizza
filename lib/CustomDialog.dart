@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cyberpizza/WebWrapper.dart';
 import 'package:cyberpizza/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -66,7 +67,9 @@ class _CustomDialogState extends State<CustomDialog> with TickerProviderStateMix
       ),
       elevation: 0.0,
       backgroundColor: Colors.transparent,
-      child: dialogContent(context),
+      child: WebWrapperDialog(
+        child: dialogContent(context),
+      ),
     );
   }
 

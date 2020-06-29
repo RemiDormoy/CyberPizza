@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:cyberpizza/ProductPage.dart';
+import 'package:cyberpizza/WebWrapper.dart';
 import 'package:cyberpizza/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -87,20 +88,21 @@ class _MyHomePageState extends State<MyHomePage> {
     }
 
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(color: deepBlueDark),
-        child: Stack(
-          children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              child: Image.asset(
-                "assets/backgroundsplash.png",
+      body: WebWrapper(
+        child: Container(
+          decoration: BoxDecoration(color: deepBlueDark),
+          child: Stack(
+            children: [
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                child: Image.asset(
+                  "assets/backgroundsplash.png",
 //                semanticsLabel: 'Acme Logo',
-                fit: BoxFit.fill,
+                  fit: BoxFit.fill,
+                ),
               ),
-            ),
-            // todo: missing this one as png
+              // todo: missing this one as png
 //            Container(
 //              width: MediaQuery.of(context).size.width,
 //              height: MediaQuery.of(context).size.height,
@@ -110,48 +112,49 @@ class _MyHomePageState extends State<MyHomePage> {
 //                fit: BoxFit.fill,
 //              ),
 //            ),
-            Center(
-              child: Container(
-                width: 200,
-                child: Stack(
-                  children: [
-                    Container(
-                      child: Hero(
-                        tag: "titleAnimation",
-                        child: Image.asset(
-                          "assets/applogo.png",
+              Center(
+                child: Container(
+                  width: 200,
+                  child: Stack(
+                    children: [
+                      Container(
+                        child: Hero(
+                          tag: "titleAnimation",
+                          child: Image.asset(
+                            "assets/applogo.png",
+                          ),
                         ),
                       ),
-                    ),
-                    Container(
-                      child: Image.asset(
-                        "assets/Logo.gif",
+                      Container(
+                        child: Image.asset(
+                          "assets/Logo.gif",
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
-            AnimatedOpacity(
-                // If the widget is visible, animate to 0.0 (invisible).
-                // If the widget is hidden, animate to 1.0 (fully visible).
-                opacity: delayTextAppearReady ? 1.0 : 0.0,
-                duration: Duration(milliseconds: 500),
-                // The green box must be a child of the AnimatedOpacity widge
+              AnimatedOpacity(
+                  // If the widget is visible, animate to 0.0 (invisible).
+                  // If the widget is hidden, animate to 1.0 (fully visible).
+                  opacity: delayTextAppearReady ? 1.0 : 0.0,
+                  duration: Duration(milliseconds: 500),
+                  // The green box must be a child of the AnimatedOpacity widge
 
-                child: Container(
-                  margin: const EdgeInsets.only(bottom: 80.0),
-                  alignment: Alignment.bottomCenter,
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 8.0),
-                    child: Text(
-                      "Best bionic parts in town",
-                      style: TextStyle(
-                          fontSize: 16, color: white.withOpacity(0.8)),
+                  child: Container(
+                    margin: const EdgeInsets.only(bottom: 80.0),
+                    alignment: Alignment.bottomCenter,
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 8.0),
+                      child: Text(
+                        "Best bionic parts in town",
+                        style: TextStyle(
+                            fontSize: 16, color: white.withOpacity(0.8)),
+                      ),
                     ),
-                  ),
-                )),
-          ],
+                  )),
+            ],
+          ),
         ),
       ),
     );
