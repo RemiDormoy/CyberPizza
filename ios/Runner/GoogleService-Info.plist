@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>979286389145-cmg4nsd8kv5fiq8ao8fpidppc40398u5.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.979286389145-cmg4nsd8kv5fiq8ao8fpidppc40398u5</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>979286389145-dml1cqfrn5i71omvtd0fubjj1ic6bjgr.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD6EcLZu9WY2OO7fFBbHsyuAvuLj_iwBEk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>979286389145</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.yolo.cyberpizza</string>
+	<key>PROJECT_ID</key>
+	<string>doggyanimation-8685f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>doggyanimation-8685f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:979286389145:ios:4c51d9067ee8a0ad322308</string>
+	<key>DATABASE_URL</key>
+	<string>https://doggyanimation-8685f.firebaseio.com</string>
+</dict>
+</plist>

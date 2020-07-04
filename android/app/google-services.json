@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "979286389145",
+    "firebase_url": "https://doggyanimation-8685f.firebaseio.com",
+    "project_id": "doggyanimation-8685f",
+    "storage_bucket": "doggyanimation-8685f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:979286389145:android:dd303a0d30b1aa4c322308",
+        "android_client_info": {
+          "package_name": "com.yolo.cyberpizza"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "979286389145-dml1cqfrn5i71omvtd0fubjj1ic6bjgr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yolo.cyberpizza",
+            "certificate_hash": "534897c8d10e22bcb821a36a39a5663e88912176"
+          }
+        },
+        {
+          "client_id": "979286389145-p4153ag9ape66kdl3a8lq6dp8rl2mal4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5CRLXFCb0bwxCtH8tlx0T-CRQbYGnJxU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "979286389145-p4153ag9ape66kdl3a8lq6dp8rl2mal4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

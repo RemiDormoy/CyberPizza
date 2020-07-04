@@ -1,0 +1,35 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "New iOS build for Counter Demo app"
+    lane :ios_beta_app do
+        build_app(
+            scheme: "Runner",
+            archive_path: "./build/Runner.xcarchive",
+            export_method: "development",
+            output_directory: "./build/Runner"
+        )
+        firebase_app_distribution(
+            app: "1:979286389145:ios:4c51d9067ee8a0ad322308",
+            testers: "remidormoy9@gmail.com, rdormoy@octo.com",
+            release_notes: "Je suis une version de test Alizée. Merci d'envoyer un sms à Rémi si ça marche",
+            firebase_cli_path: "/usr/local/bin/firebase",
+            ipa_path: "./build/Runner/Runner.ipa"
+        )
+    end
+end
