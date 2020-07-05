@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>979286389145-cmg4nsd8kv5fiq8ao8fpidppc40398u5.apps.googleusercontent.com</string>
+	<string>979286389145-ekq70qqh8ultmlpugb50rhas581mdnrs.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.979286389145-cmg4nsd8kv5fiq8ao8fpidppc40398u5</string>
+	<string>com.googleusercontent.apps.979286389145-ekq70qqh8ultmlpugb50rhas581mdnrs</string>
 	<key>ANDROID_CLIENT_ID</key>
 	<string>979286389145-dml1cqfrn5i71omvtd0fubjj1ic6bjgr.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
@@ -31,7 +31,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:979286389145:ios:4c51d9067ee8a0ad322308</string>
+	<string>1:979286389145:ios:8541ccecf8ef973e322308</string>
 	<key>DATABASE_URL</key>
 	<string>https://doggyanimation-8685f.firebaseio.com</string>
 </dict>
